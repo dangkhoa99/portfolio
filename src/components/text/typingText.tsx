@@ -43,7 +43,7 @@ export const TypingText: React.FC<{ text: string }> = (props) => {
 						position: 'absolute',
 						top: '0',
 						right: '0',
-						backgroundColor: '#fff',
+						backgroundColor: 'text.primary',
 						width: '2px',
 						height: '100%',
 						animation: `${blinking} 1s steps(3) infinite`,

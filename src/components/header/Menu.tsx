@@ -1,7 +1,5 @@
 import React from 'react'
-import { IconButton, Tooltip, Box, SwipeableDrawer, List, ListItem, Stack } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
-import CloseIcon from '@mui/icons-material/Close'
+import { Box, SwipeableDrawer, List, ListItem, Stack } from '@mui/material'
 import { Link, useLocation } from 'react-router-dom'
 import { BlurImage } from '../blurImage'
 import { BorderText } from '../text'
@@ -58,8 +56,9 @@ const MenuItem: React.FC<{ text: string; onClick: () => void; pathname: any }> =
 					fontSize='60px'
 					fontWeight='fontWeightBold'
 					borderWidth='1px'
+					borderColor='primary.main'
 					transition='0.3s ease-in-out'
-					hoverBeforeBorderWidth='10px'
+					hoverBeforeBorderWidth='5px'
 					hoverBeforeTransform='translateX(-3px)'
 				/>
 			</Box>

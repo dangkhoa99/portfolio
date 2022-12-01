@@ -24,6 +24,7 @@ export const Home: React.FC<{}> = () => {
 								width: '250px',
 								height: '250px',
 								border: `10px solid rgba(255, 255, 255, 0.08)`,
+								borderColor: 'action.hover',
 								borderRadius: '50%',
 								overflow: 'hidden',
 								margin: 'auto',
@@ -56,7 +57,6 @@ export const Home: React.FC<{}> = () => {
 								fontWeight='fontWeightRegular'
 								fontFamily="'Bungee', cursive"
 								borderWidth='6px'
-								textColor='#fff'
 								borderColor='primary.main'
 								mr={2}
 							/>
@@ -68,7 +68,6 @@ export const Home: React.FC<{}> = () => {
 								fontFamily="'Bungee', cursive"
 								borderWidth='6px'
 								textColor='primary.main'
-								borderColor='#fff'
 							/>
 						</Typography>
 					</Box>

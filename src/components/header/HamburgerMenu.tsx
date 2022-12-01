@@ -11,14 +11,14 @@ export const HamburgerMenu: React.FC<{
 	return (
 		<Box
 			sx={{
-				width: '60px',
-				height: '60px',
+				width: '40px',
+				height: '40px',
 				cursor: 'pointer',
-				p: 1.5,
+				p: 1,
 				borderRadius: '50%',
 				transition: '0.3s ease-in-out',
 				'&:hover': {
-					backgroundColor: 'rgba(255, 255, 255, 0.05)',
+					backgroundColor: 'action.hover',
 				},
 			}}
 			onClick={isOpen ? closeMenu : openMenu}
@@ -27,15 +27,15 @@ export const HamburgerMenu: React.FC<{
 				component='div'
 				className={isOpen ? 'open' : ''}
 				sx={{
-					height: '5px',
+					height: '4px',
 					width: '100%',
-					backgroundColor: '#fff',
+					backgroundColor: 'text.primary',
 					display: 'block',
 					borderRadius: '5px',
 					transition: '0.3s ease',
-					transform: 'translateY(6px)',
+					transform: 'translateY(3px)',
 					'&.open': {
-						transform: 'translateY(16px) rotateZ(-45deg)',
+						transform: 'translateY(10px) rotateZ(-45deg)',
 					},
 				}}
 			/>
@@ -44,13 +44,13 @@ export const HamburgerMenu: React.FC<{
 				component='div'
 				className={isOpen ? 'open' : ''}
 				sx={{
-					height: '5px',
+					height: '4px',
 					width: '100%',
-					backgroundColor: '#fff',
+					backgroundColor: 'text.primary',
 					display: 'block',
 					borderRadius: '5px',
 					transition: '0.3s ease',
-					transform: 'translateY(10px)',
+					transform: 'translateY(6px)',
 					'&.open': {
 						opacity: '0',
 					},
@@ -61,15 +61,15 @@ export const HamburgerMenu: React.FC<{
 				component='div'
 				className={isOpen ? 'open' : ''}
 				sx={{
-					height: '5px',
+					height: '4px',
 					width: '100%',
-					backgroundColor: '#fff',
+					backgroundColor: 'text.primary',
 					display: 'block',
 					borderRadius: '5px',
 					transition: '0.3s ease',
-					transform: 'translateY(14px)',
+					transform: 'translateY(9px)',
 					'&.open': {
-						transform: 'translateY(6px) rotateZ(45deg)',
+						transform: 'translateY(2px) rotateZ(45deg)',
 					},
 				}}
 			/>
