@@ -1,16 +1,17 @@
 import React from 'react'
-import { Avatar, Box } from '@mui/material'
+import { Avatar, Box, useMediaQuery, useTheme } from '@mui/material'
 import MyLogoLightTheme from '../../assets/images/logo/logo_lightTheme.jpg'
 import MyLogoDarkTheme from '../../assets/images/logo/logo_darkTheme.jpg'
 import { RootState } from '../../redux/store'
 import { useSelector, shallowEqual } from 'react-redux'
 
-const styleAvatarContainer = {
-	width: '40px',
-	height: '40px',
+const styleAvatarContainer = (matches: any) => ({
+	width: matches ? '32px' : '40px',
+	height: matches ? '32px' : '40px',
 	position: 'relative',
 	cursor: 'pointer',
 	'&::before': {
+		display: matches ? 'none' : 'unset',
 		content: '""',
 		position: 'absolute',
 		top: '-5px',
@@ -25,6 +26,7 @@ const styleAvatarContainer = {
 		zIndex: '1',
 	},
 	'&::after': {
+		display: matches ? 'none' : 'unset',
 		content: '""',
 		position: 'absolute',
 		bottom: '-5px',
@@ -54,7 +56,7 @@ const styleAvatarContainer = {
 		borderLeftStyle: 'solid',
 		opacity: '1',
 	},
-}
+})
 
 export const Logo: React.FC<{}> = () => {
 	const colorModeTheme = useSelector((state: RootState) => {
@@ -65,12 +67,15 @@ export const Logo: React.FC<{}> = () => {
 		return state.openMenu.value
 	}, shallowEqual)
 
+	const theme = useTheme()
+	const matches = useMediaQuery(theme.breakpoints.down('sm'))
+
 	return (
 		<React.Fragment>
 			{openMenu ? (
 				<React.Fragment></React.Fragment>
 			) : (
-				<Box sx={styleAvatarContainer}>
+				<Box sx={styleAvatarContainer(matches)}>
 					<Avatar
 						sx={{ width: '100%', height: '100%' }}
 						src={colorModeTheme === 'light' ? MyLogoLightTheme : MyLogoDarkTheme}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconButton, Tooltip } from '@mui/material'
+import { IconButton, Tooltip, useMediaQuery, useTheme } from '@mui/material'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
@@ -17,6 +17,9 @@ export const SwitchTheme: React.FC<{}> = () => {
 
 	const dispatch = useDispatch()
 
+	const theme = useTheme()
+	const matches = useMediaQuery(theme.breakpoints.down('sm'))
+
 	return (
 		<React.Fragment>
 			{openMenu ? (
@@ -25,7 +28,13 @@ export const SwitchTheme: React.FC<{}> = () => {
 				<Tooltip title={colorModeTheme === 'light' ? 'Dark' : 'Light'} placement='bottom'>
 					<IconButton
 						onClick={() => dispatch(changeTheme(colorModeTheme))}
-						sx={{ color: 'text.primary', position: 'relative', width: '40px', height: '40px' }}
+						sx={{
+							color: 'text.primary',
+							position: 'relative',
+							width: matches ? '32px' : '40px',
+							height: matches ? '32px' : '40px',
+							p: matches ? '4px' : '8px',
+						}}
 					>
 						<DarkModeIcon
 							className={colorModeTheme === 'light' ? 'animate-dark' : ''}

@@ -1,21 +1,30 @@
 import React from 'react'
-import { Stack, Typography, keyframes } from '@mui/material'
+import { Stack, Typography, keyframes, useTheme, useMediaQuery } from '@mui/material'
 
-const typing = keyframes`
-0%, 90%,  100% { width: 0; }
-30%, 60% { width: 355px; }
+const typing = (_matches: any) => keyframes`
+0%, 90%,  100% { width: 1px; }
+30%, 60% { width: ${_matches ? '250px' : '350px'}; }
 `
 
 const blinking = keyframes`
-0%, 75% { opacity: 1; }
-76%, 100% { opacity: 0; }
+0%, 100% { opacity: 0; }
+50% { opacity: 1; }
 `
 
 export const TypingText: React.FC<{ text: string }> = (props) => {
 	const { text } = props
 
+	const theme = useTheme()
+	const matches = useMediaQuery(theme.breakpoints.down('sm'))
+
 	return (
-		<Stack direction='row' alignItems='center' justifyContent='center' flexWrap='wrap'>
+		<Stack
+			direction={matches ? 'column' : 'row'}
+			alignItems='center'
+			justifyContent='center'
+			flexWrap='wrap'
+			spacing={1}
+		>
 			<Typography
 				variant='h5'
 				component='span'
@@ -30,14 +39,14 @@ export const TypingText: React.FC<{ text: string }> = (props) => {
 			</Typography>
 
 			<Typography
-				variant='h4'
+				variant={matches ? 'h5' : 'h4'}
 				component='span'
 				sx={{
 					display: 'inline-block',
 					overflow: 'hidden',
 					fontWeight: 'fontWeightMedium',
 					whiteSpace: 'nowrap',
-					animation: `${typing} 8s steps(19) infinite`,
+					animation: `${typing(matches)} 6s steps(19) infinite`,
 					position: 'relative',
 					'&::after': {
 						content: '""',
@@ -47,7 +56,7 @@ export const TypingText: React.FC<{ text: string }> = (props) => {
 						backgroundColor: 'text.primary',
 						width: '2px',
 						height: '100%',
-						animation: `${blinking} 1s steps(3) infinite`,
+						animation: `${blinking} 1s infinite`,
 					},
 				}}
 			>

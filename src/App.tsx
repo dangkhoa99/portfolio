@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, CssBaseline } from '@mui/material'
+import { Container, CssBaseline, useMediaQuery, useTheme } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { Header } from './components/header'
@@ -16,15 +16,15 @@ const App = () => {
 	const colorModeTheme = useSelector((state: RootState) => {
 		return state.colorModeTheme.value
 	}, shallowEqual)
-
+	const theme = useTheme()
+	const matches = useMediaQuery(theme.breakpoints.down('sm'))
 	return (
 		<ThemeProvider theme={colorModeTheme === 'light' ? lightTheme : darkTheme}>
 			<CssBaseline />
 			<div className='App'>
-				<Container maxWidth='xl' disableGutters>
-					<Router>
-						<Header />
-
+				<Router>
+					<Header />
+					<Container maxWidth='xl' disableGutters sx={{ mt: matches ? '56px' : '64px' }}>
 						<Routes>
 							<Route path='*' element={<PageNotFound />} />
 							<Route path='/' element={<Home />} />
@@ -32,8 +32,8 @@ const App = () => {
 							<Route path='/portfolio' element={<Portfolio />} />
 							<Route path='/contact' element={<Contact />} />
 						</Routes>
-					</Router>
-				</Container>
+					</Container>
+				</Router>
 			</div>
 		</ThemeProvider>
 	)

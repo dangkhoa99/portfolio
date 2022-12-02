@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles'
+import { minHeight } from '@mui/system'
 
 const renderTheme = (mode: any) => {
 	return createTheme({
@@ -13,11 +14,6 @@ const renderTheme = (mode: any) => {
 		},
 		typography: {
 			fontFamily: "'Poppins', san-serif",
-		},
-		mixins: {
-			toolbar: {
-				minHeight: '64px',
-			},
 		},
 		zIndex: {
 			appBar: 1200,

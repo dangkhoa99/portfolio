@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@mui/material'
+import { Box, useMediaQuery, useTheme } from '@mui/material'
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { handleOpenMenu, handleCloseMenu } from '../../redux/slices/openMenuSlice'
@@ -11,13 +11,16 @@ export const HamburgerMenu: React.FC<{}> = () => {
 
 	const dispatch = useDispatch()
 
+	const theme = useTheme()
+	const matches = useMediaQuery(theme.breakpoints.down('sm'))
+
 	return (
 		<Box
 			sx={{
-				width: '40px',
-				height: '40px',
+				width: matches ? '32px' : '40px',
+				height: matches ? '32px' : '40px',
+				p: matches ? '4px' : '8px',
 				cursor: 'pointer',
-				p: 1,
 				borderRadius: '50%',
 				transition: '0.3s ease-in-out',
 				'&:hover': {
