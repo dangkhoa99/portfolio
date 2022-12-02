@@ -1,12 +1,15 @@
-import { Box } from '@mui/material'
 import React from 'react'
+import { Box } from '@mui/material'
+import { useSelector, shallowEqual, useDispatch } from 'react-redux'
+import { RootState } from '../../redux/store'
+import { handleOpenMenu, handleCloseMenu } from '../../redux/slices/openMenuSlice'
 
-export const HamburgerMenu: React.FC<{
-	isOpen: boolean
-	closeMenu: () => void
-	openMenu: () => void
-}> = (props) => {
-	const { isOpen, closeMenu, openMenu } = props
+export const HamburgerMenu: React.FC<{}> = () => {
+	const openMenu = useSelector((state: RootState) => {
+		return state.openMenu.value
+	}, shallowEqual)
+
+	const dispatch = useDispatch()
 
 	return (
 		<Box
@@ -21,11 +24,13 @@ export const HamburgerMenu: React.FC<{
 					backgroundColor: 'action.hover',
 				},
 			}}
-			onClick={isOpen ? closeMenu : openMenu}
+			onClick={() => {
+				openMenu ? dispatch(handleCloseMenu()) : dispatch(handleOpenMenu())
+			}}
 		>
 			<Box
 				component='div'
-				className={isOpen ? 'open' : ''}
+				className={openMenu ? 'open' : ''}
 				sx={{
 					height: '4px',
 					width: '100%',
@@ -42,7 +47,7 @@ export const HamburgerMenu: React.FC<{
 
 			<Box
 				component='div'
-				className={isOpen ? 'open' : ''}
+				className={openMenu ? 'open' : ''}
 				sx={{
 					height: '4px',
 					width: '100%',
@@ -59,7 +64,7 @@ export const HamburgerMenu: React.FC<{
 
 			<Box
 				component='div'
-				className={isOpen ? 'open' : ''}
+				className={openMenu ? 'open' : ''}
 				sx={{
 					height: '4px',
 					width: '100%',

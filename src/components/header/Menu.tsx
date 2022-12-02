@@ -1,89 +1,36 @@
 import React from 'react'
-import { Box, SwipeableDrawer, List, ListItem, Stack } from '@mui/material'
-import { Link, useLocation } from 'react-router-dom'
-import { BlurImage } from '../blurImage'
-import { BorderText } from '../text'
+import { Box, SwipeableDrawer, List, Stack } from '@mui/material'
+import { useLocation } from 'react-router-dom'
+import { BlurImage } from '../blur'
 import { HamburgerMenu } from './HamburgerMenu'
-
-const PAGES = ['Home', 'About', 'Portfolio', 'Contact']
-
-const styleLink = {
-	'&::before': {
-		content: '""',
-		position: 'absolute',
-		top: '50%',
-		left: '0',
-		transform: 'translateY(50%)',
-		height: '1px',
-		width: '0%',
-		opacity: '0',
-		backgroundColor: 'primary.main',
-		transition: '0.5s ease-in-out',
-	},
-	'&:hover::before, &.active:hover::before': {
-		width: '35%',
-		opacity: '1',
-	},
-	'&.active::before': {
-		width: '20%',
-		opacity: '1',
-	},
-	'&.active > p::before': {
-		WebkitTextStrokeWidth: '5px',
-	},
-	'&.active > p:hover::before': {
-		WebkitTextStrokeWidth: '5px',
-		transform: 'translateX(-3px)',
-	},
-}
-
-const MenuItem: React.FC<{ text: string; onClick: () => void; pathname: any }> = (props) => {
-	const { text, onClick, pathname } = props
-	const link = text.toLowerCase() === 'home' ? '' : text.toLowerCase()
-	const selected = pathname.replace('/', '')
-
-	return (
-		<ListItem sx={{ justifyContent: 'center' }} disableGutters>
-			<Box
-				component={Link}
-				to={`/${link}`}
-				onClick={onClick}
-				sx={styleLink}
-				className={selected === link ? 'active' : ''}
-			>
-				<BorderText
-					text={text}
-					fontSize='60px'
-					fontWeight='fontWeightBold'
-					borderWidth='1px'
-					borderColor='primary.main'
-					transition='0.3s ease-in-out'
-					hoverBeforeBorderWidth='5px'
-					hoverBeforeTransform='translateX(-3px)'
-				/>
-			</Box>
-		</ListItem>
-	)
-}
+import { PAGES } from '../../constants/constant'
+import { MenuItem } from './MenuItem'
+import { useSelector, shallowEqual, useDispatch } from 'react-redux'
+import { RootState } from '../../redux/store'
+import { handleOpenMenu, handleCloseMenu } from '../../redux/slices/openMenuSlice'
 
 export const Menu = () => {
-	const [isOpen, setIsOpen] = React.useState(false)
 	const location = useLocation()
+
 	const pathname = location.pathname
 
-	const openMenu = () => {
-		setIsOpen(true)
-	}
+	const openMenu = useSelector((state: RootState) => {
+		return state.openMenu.value
+	}, shallowEqual)
 
-	const closeMenu = () => {
-		setIsOpen(false)
-	}
+	const dispatch = useDispatch()
 
 	return (
 		<React.Fragment>
-			<HamburgerMenu isOpen={isOpen} closeMenu={closeMenu} openMenu={openMenu} />
+			<HamburgerMenu />
 
-			<SwipeableDrawer anchor='top' open={isOpen} onClose={closeMenu} onOpen={openMenu}>
+			<SwipeableDrawer
+				anchor='top'
+				transitionDuration={500}
+				open={openMenu}
+				onClose={() => dispatch(handleCloseMenu())}
+				onOpen={() => dispatch(handleOpenMenu())}
+			>
 				<Box
 					sx={{
 						width: '100%',
@@ -97,8 +44,8 @@ export const Menu = () => {
 
 					<Stack sx={{ height: '100%' }} justifyContent='center' alignItems='center'>
 						<List disablePadding sx={{ width: '100%' }}>
-							{PAGES.map((text) => (
-								<MenuItem key={text} text={text} onClick={closeMenu} pathname={pathname} />
+							{PAGES.map((page) => (
+								<MenuItem key={page} text={page} pathname={pathname} />
 							))}
 						</List>
 					</Stack>

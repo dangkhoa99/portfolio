@@ -13,6 +13,7 @@ const blinking = keyframes`
 
 export const TypingText: React.FC<{ text: string }> = (props) => {
 	const { text } = props
+
 	return (
 		<Stack direction='row' alignItems='center' justifyContent='center' flexWrap='wrap'>
 			<Typography

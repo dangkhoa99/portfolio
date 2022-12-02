@@ -9,43 +9,21 @@ import { Contact } from './screens/contact'
 import { Home } from './screens/home'
 import { Portfolio } from './screens/portfolio'
 import { darkTheme, lightTheme } from './themes'
+import { RootState } from './redux/store'
+import { useSelector, shallowEqual } from 'react-redux'
 
 const App = () => {
-	const [isDarkTheme, setIsDarkTheme] = React.useState(true)
-
-	const setThemeInStorage = (_theme: string) => {
-		localStorage.setItem('theme', _theme)
-	}
-
-	const getThemeInStorage = () => {
-		return localStorage.getItem('theme')
-	}
-
-	React.useEffect(() => {
-		const theme = getThemeInStorage()
-
-		if (!theme) {
-			setThemeInStorage('dark')
-			setIsDarkTheme(false)
-		} else {
-			setIsDarkTheme(theme === 'dark' ? true : false)
-		}
-
-		return () => {}
-	}, [])
-
-	const changeTheme = () => {
-		setThemeInStorage(!isDarkTheme ? 'dark' : 'light')
-		setIsDarkTheme(!isDarkTheme)
-	}
+	const colorModeTheme = useSelector((state: RootState) => {
+		return state.colorModeTheme.value
+	}, shallowEqual)
 
 	return (
-		<ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+		<ThemeProvider theme={colorModeTheme === 'light' ? lightTheme : darkTheme}>
 			<CssBaseline />
 			<div className='App'>
 				<Container maxWidth='xl' disableGutters>
 					<Router>
-						<Header isDarkTheme={isDarkTheme} changeTheme={changeTheme} />
+						<Header />
 
 						<Routes>
 							<Route path='*' element={<PageNotFound />} />

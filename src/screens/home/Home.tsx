@@ -1,8 +1,8 @@
 import React from 'react'
-import { Avatar, Box, Container, Grid, Typography } from '@mui/material'
-import MyAvatar from '../../assets/images/avatar.jpg'
-import { BlurImage } from '../../components/blurImage'
+import { Box, Container, Grid, Typography } from '@mui/material'
+import { BlurImage } from '../../components/blur'
 import { BorderText, TypingText } from '../../components/text'
+import { HomeAvatar } from '../../components/avatar'
 
 export const Home: React.FC<{}> = () => {
 	return (
@@ -19,31 +19,7 @@ export const Home: React.FC<{}> = () => {
 			<Grid container spacing={2} direction='row' sx={{ textAlign: 'center' }}>
 				<Grid item xs={12}>
 					<Box sx={{ width: '100%', height: '100%' }}>
-						<Box
-							sx={{
-								width: '250px',
-								height: '250px',
-								border: `10px solid rgba(255, 255, 255, 0.08)`,
-								borderColor: 'action.hover',
-								borderRadius: '50%',
-								overflow: 'hidden',
-								margin: 'auto',
-							}}
-						>
-							<Avatar
-								src={MyAvatar}
-								alt='Khoa Nguyen'
-								sx={{
-									width: '100%',
-									height: '100%',
-									transition: '0.3s ease-in-out',
-									cursor: 'pointer',
-									'&:hover': {
-										transform: 'scale(1.1)',
-									},
-								}}
-							/>
-						</Box>
+						<HomeAvatar />
 					</Box>
 				</Grid>
 

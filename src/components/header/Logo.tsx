@@ -1,14 +1,15 @@
 import React from 'react'
 import { Avatar, Box } from '@mui/material'
-import MyLogo from '../../assets/images/logo/logo.jpg'
+import MyLogoLightTheme from '../../assets/images/logo/logo_lightTheme.jpg'
+import MyLogoDarkTheme from '../../assets/images/logo/logo_darkTheme.jpg'
+import { RootState } from '../../redux/store'
+import { useSelector, shallowEqual } from 'react-redux'
 
-const styleAvatarContainer = (isDarkTheme: boolean) => ({
+const styleAvatarContainer = {
 	width: '40px',
 	height: '40px',
 	position: 'relative',
 	cursor: 'pointer',
-	backgroundColor: isDarkTheme ? 'transparent' : '#000',
-	borderRadius: isDarkTheme ? '0' : '10px',
 	'&::before': {
 		content: '""',
 		position: 'absolute',
@@ -53,13 +54,31 @@ const styleAvatarContainer = (isDarkTheme: boolean) => ({
 		borderLeftStyle: 'solid',
 		opacity: '1',
 	},
-})
+}
 
-export const Logo: React.FC<{ isDarkTheme: boolean }> = (props) => {
-	const { isDarkTheme } = props
+export const Logo: React.FC<{}> = () => {
+	const colorModeTheme = useSelector((state: RootState) => {
+		return state.colorModeTheme.value
+	}, shallowEqual)
+
+	const openMenu = useSelector((state: RootState) => {
+		return state.openMenu.value
+	}, shallowEqual)
+
 	return (
-		<Box sx={styleAvatarContainer(isDarkTheme)}>
-			<Avatar sx={{ width: '100%', height: '100%' }} src={MyLogo} alt='logo' variant='square' />
-		</Box>
+		<React.Fragment>
+			{openMenu ? (
+				<React.Fragment></React.Fragment>
+			) : (
+				<Box sx={styleAvatarContainer}>
+					<Avatar
+						sx={{ width: '100%', height: '100%' }}
+						src={colorModeTheme === 'light' ? MyLogoLightTheme : MyLogoDarkTheme}
+						alt='logo'
+						variant='square'
+					/>
+				</Box>
+			)}
+		</React.Fragment>
 	)
 }

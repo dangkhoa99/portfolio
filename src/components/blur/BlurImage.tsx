@@ -1,14 +1,5 @@
 import React from 'react'
-import { Box, keyframes } from '@mui/material'
-
-const fadeInAnimation = keyframes`
-0% {
-	opacity: 0;
-}
-100% {
-	opacity: 1;
-}
-`
+import { Box } from '@mui/material'
 
 export const BlurImage: React.FC<{
 	width: string
@@ -30,6 +21,7 @@ export const BlurImage: React.FC<{
 		bottom = 'unset',
 		transform = 'unset',
 	} = props
+
 	return (
 		<Box
 			sx={{
@@ -44,9 +36,6 @@ export const BlurImage: React.FC<{
 				filter: `blur(${blur})`,
 				backgroundColor: 'primary.main',
 				borderRadius: '9999px',
-				// animation: `${fadeInAnimation} ease 3s`,
-				// animationIterationCount: '1',
-				// animationFillMode: 'forwards',
 			}}
 		/>
 	)
