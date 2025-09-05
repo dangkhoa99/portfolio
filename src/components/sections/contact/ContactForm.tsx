@@ -11,7 +11,7 @@ import { contactFormSchema, defaultContactFormValue, TContactFormValue } from '@
 import { RHFTextArea, RHFTextField } from '@/components/core/input';
 import { Loading } from '@/components/core/loading';
 
-const _ContactForm: React.FC = () => {
+const ContactFormComponent: React.FC = () => {
   // --------------------------------------------------
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -130,4 +130,4 @@ const _ContactForm: React.FC = () => {
   );
 };
 
-export const ContactForm = React.memo(_ContactForm);
+export const ContactForm = React.memo(ContactFormComponent);

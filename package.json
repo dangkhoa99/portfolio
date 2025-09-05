@@ -2,7 +2,11 @@
   "name": "portfolio",
   "version": "0.0.0",
   "private": true,
+  "description": "Khoa Nguyen's Portfolio",
+  "type": "module",
   "scripts": {
+    "prepare": "husky install",
+    "prettier": "prettier '**/*.{js,ts,jsx,tsx}' --write",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
@@ -33,9 +37,26 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.6",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "keywords": [
+    "Portfolio",
+    "Resume",
+    "ReactJS",
+    "NextJS",
+    "TailwindCSS"
+  ],
+  "author": "Khoa Nguyen <nguyenminhdangkhoa9@gmail.com>",
+  "homepage": "https://github.com/dangkhoa99/portfolio",
+  "license": "MIT",
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --report-unused-disable-directives"
+    ]
   }
 }

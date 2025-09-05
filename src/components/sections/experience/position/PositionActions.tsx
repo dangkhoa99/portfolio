@@ -5,7 +5,7 @@ import React from 'react';
 import { AccordionContext } from '@/components/core/accordion';
 import { BiCollapseVertical, BiExpandVertical } from 'react-icons/bi';
 
-const _PositionActions: React.FC = () => {
+const PositionActionsComponent: React.FC = () => {
   // --------------------------------------------------
   const { isExpanded } = React.useContext(AccordionContext);
 
@@ -16,4 +16,4 @@ const _PositionActions: React.FC = () => {
   );
 };
 
-export const PositionActions = React.memo(_PositionActions);
+export const PositionActions = React.memo(PositionActionsComponent);

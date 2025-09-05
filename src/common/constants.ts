@@ -21,8 +21,8 @@ export class AppConst {
   };
   static readonly NOTISTACK_AUTO_HIDE_DURATION = 5000; // 5s
 
-  static readonly DOMAIN = ``;
-  static readonly WEBSITE = ``;
+  static readonly DOMAIN = `khoanguyen99.vercel.app`;
+  static readonly WEBSITE = `https://${this.DOMAIN}`;
 }
 
 // --------------------------------------------------

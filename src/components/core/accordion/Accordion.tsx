@@ -17,7 +17,7 @@ interface IProps {
 
 export const AccordionContext = React.createContext<{ isExpanded?: boolean }>({});
 
-const _Accordion: React.FC<IProps> = (props) => {
+export const Accordion: React.FC<IProps> = (props) => {
   const { slots, isExpanded: isInitExpanded, slotProps } = props;
   const { heading, collapse } = slots;
   const { wrapper } = slotProps || {};
@@ -59,7 +59,7 @@ const _Accordion: React.FC<IProps> = (props) => {
     setContentHeight('0px');
 
     return () => {};
-  }, [isExpanded]);
+  }, [isExpanded, updateContentHeight]);
 
   // --------------------------------------------------
   React.useEffect(() => {
@@ -75,7 +75,7 @@ const _Accordion: React.FC<IProps> = (props) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [isExpanded]);
+  }, [isExpanded, updateContentHeight]);
 
   // --------------------------------------------------
   React.useEffect(() => {
@@ -104,5 +104,3 @@ const _Accordion: React.FC<IProps> = (props) => {
     </AccordionContext>
   );
 };
-
-export const Accordion = React.memo(_Accordion);

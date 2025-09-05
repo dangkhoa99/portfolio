@@ -49,7 +49,7 @@ export const HeaderWrapper: React.FC<IHeaderWrapperProps> = (props) => {
     cancelAnimationFrame(frame.current);
     frame.current = requestAnimationFrame(updateScroll);
     ticking.current = true;
-  }, []);
+  }, [updateScroll]);
 
   // --------------------------------------------------
   React.useEffect(() => {
@@ -58,7 +58,7 @@ export const HeaderWrapper: React.FC<IHeaderWrapperProps> = (props) => {
       window.removeEventListener('scroll', handleScroll);
       cancelAnimationFrame(frame.current);
     };
-  }, []);
+  }, [handleScroll]);
 
   return (
     <header

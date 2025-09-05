@@ -10,7 +10,7 @@ export interface IProjectCarouselProps {
   slides: ICarouselSlide[];
 }
 
-const _ProjectCarousel: React.FC<IProjectCarouselProps> = (props) => {
+const ProjectCarouselComponent: React.FC<IProjectCarouselProps> = (props) => {
   const { slides } = props;
 
   // --------------------------------------------------
@@ -60,4 +60,4 @@ const _ProjectCarousel: React.FC<IProjectCarouselProps> = (props) => {
   );
 };
 
-export const ProjectCarousel = React.memo(_ProjectCarousel);
+export const ProjectCarousel = React.memo(ProjectCarouselComponent);

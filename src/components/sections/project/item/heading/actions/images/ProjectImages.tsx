@@ -10,7 +10,7 @@ import { ProjectCarousel } from './ProjectCarousel';
 
 interface IProps extends IProject {}
 
-const _ProjectImages: React.FC<IProps> = (props) => {
+const ProjectImagesComponent: React.FC<IProps> = (props) => {
   const { images } = props;
 
   // --------------------------------------------------
@@ -50,4 +50,4 @@ const _ProjectImages: React.FC<IProps> = (props) => {
   );
 };
 
-export const ProjectImages = React.memo(_ProjectImages);
+export const ProjectImages = React.memo(ProjectImagesComponent);

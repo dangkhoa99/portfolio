@@ -12,7 +12,7 @@ interface IProps {
   menu: { id: string; title: string; route: string };
 }
 
-const _MenuListItem: React.FC<IProps> = (props) => {
+const MenuListItemComponent: React.FC<IProps> = (props) => {
   const { menu, className } = props;
 
   // --------------------------------------------------
@@ -21,7 +21,7 @@ const _MenuListItem: React.FC<IProps> = (props) => {
   // --------------------------------------------------
   const isSelected = React.useMemo(() => {
     return pathname === menu.route;
-  }, [pathname]);
+  }, [menu.route, pathname]);
 
   return (
     <Link
@@ -36,4 +36,4 @@ const _MenuListItem: React.FC<IProps> = (props) => {
   );
 };
 
-export const MenuListItem = React.memo(_MenuListItem);
+export const MenuListItem = React.memo(MenuListItemComponent);

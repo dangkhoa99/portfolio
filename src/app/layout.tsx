@@ -5,7 +5,7 @@ import { Roboto } from 'next/font/google';
 import { Providers } from './providers';
 
 import '@/styles/globals.css';
-import { AppRoutes, Socials } from '@/common';
+import { AppConst, AppRoutes, Socials } from '@/common';
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -15,6 +15,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(AppConst.WEBSITE),
   title: {
     template: '%s | Khoa Nguyen - Portfolio',
     default: 'Khoa Nguyen - Portfolio',
@@ -53,6 +54,14 @@ export const metadata: Metadata = {
     description: `Explore the portfolio of Khoa Nguyen, Front End Developer specializing in ReactJS, TypeScript, and modern web technologies. View projects, skills, and contact information.`,
     url: AppRoutes.websitePath.main,
     siteName: 'Khoa Nguyen Portfolio',
+    images: [
+      {
+        url: '/logo-website.png',
+        width: 400,
+        height: 400,
+        alt: 'Khoa Nguyen Portfolio Preview',
+      },
+    ],
     countryName: 'Vietnam',
     emails: [Socials.urls[Socials.EMAIL]],
   },

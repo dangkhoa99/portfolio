@@ -6,7 +6,7 @@ import { BiCollapseVertical, BiExpandVertical } from 'react-icons/bi';
 
 import { AccordionContext } from '@/components/core/accordion';
 
-const _ToggleBtn: React.FC = () => {
+const ToggleBtnComponent: React.FC = () => {
   // --------------------------------------------------
   const { isExpanded } = React.useContext(AccordionContext);
 
@@ -17,4 +17,4 @@ const _ToggleBtn: React.FC = () => {
   );
 };
 
-export const ToggleBtn = React.memo(_ToggleBtn);
+export const ToggleBtn = React.memo(ToggleBtnComponent);

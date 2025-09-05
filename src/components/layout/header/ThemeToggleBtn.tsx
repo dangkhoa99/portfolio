@@ -11,23 +11,26 @@ export const ThemeToggleBtn: React.FC = () => {
   const { resolvedTheme, setTheme } = useTheme();
 
   // --------------------------------------------------
-  const toggleTheme = React.useCallback((opts: { currentTheme?: string }) => {
-    if (typeof window === 'undefined') {
-      return;
-    }
+  const toggleTheme = React.useCallback(
+    (opts: { currentTheme?: string }) => {
+      if (typeof window === 'undefined') {
+        return;
+      }
 
-    const { currentTheme } = opts;
-    const otherTheme = currentTheme === 'light' ? 'dark' : 'light';
+      const { currentTheme } = opts;
+      const otherTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-    if (!document.startViewTransition) {
-      setTheme(otherTheme);
-      return;
-    }
+      if (!document.startViewTransition) {
+        setTheme(otherTheme);
+        return;
+      }
 
-    document.startViewTransition(() => {
-      setTheme(otherTheme);
-    });
-  }, []);
+      document.startViewTransition(() => {
+        setTheme(otherTheme);
+      });
+    },
+    [setTheme],
+  );
 
   return (
     <button
