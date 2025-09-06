@@ -1,6 +1,6 @@
 import { cn } from '@/utils/tailwind.util';
 
-export interface ISkillChipProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
+export interface ISkillChipProps extends Omit<React.ComponentProps<'div'>, 'children'> {
   icon?: React.ReactNode;
   label: string;
 }

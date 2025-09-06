@@ -2,7 +2,7 @@ import { cn } from '@/utils/tailwind.util';
 import { InputHelperText } from './InputHelperText';
 import { InputLabel } from './InputLabel';
 
-export interface ITextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface ITextFieldProps extends React.ComponentProps<'input'> {
   isFullWidth?: boolean;
   isError?: boolean;
 

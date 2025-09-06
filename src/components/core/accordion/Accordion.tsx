@@ -11,7 +11,7 @@ interface IProps {
     collapse: React.ReactNode;
   };
   slotProps?: {
-    wrapper?: Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+    wrapper?: Omit<React.ComponentProps<'div'>, 'children'>;
   };
 }
 

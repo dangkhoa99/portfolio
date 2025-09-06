@@ -2,8 +2,7 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 import { cn } from '@/utils/tailwind.util';
 
-export interface ICarouselArrowBtnProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+export interface ICarouselArrowBtnProps extends Omit<React.ComponentProps<'button'>, 'children'> {
   variant: 'prev' | 'next';
 }
 
