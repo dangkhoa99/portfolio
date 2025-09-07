@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from 'next';
 
-import { Layout } from '@/components/layout/Layout';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Roboto } from 'next/font/google';
+
+import { AppConst, AppRoutes, Socials } from '@/common';
+import { Layout } from '@/components/layout/Layout';
 import { Providers } from './providers';
 
 import '@/styles/globals.css';
-import { AppConst, AppRoutes, Socials } from '@/common';
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -96,6 +99,8 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" className={roboto.variable} suppressHydrationWarning>
       <body className={`relative flex min-h-screen flex-col antialiased`}>
+        <SpeedInsights />
+        <Analytics />
         <Providers>
           <Layout>{children}</Layout>
         </Providers>
