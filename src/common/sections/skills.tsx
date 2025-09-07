@@ -80,6 +80,7 @@ export class Skills {
   static readonly GITLAB = 'GITLAB';
   static readonly GITHUB_ACTIONS = 'GITHUB_ACTIONS';
   static readonly NOTION = 'NOTION';
+  static readonly FRAMER_MOTION = 'FRAMER_MOTION';
 
   static readonly translate: Record<string, string> = {
     [this.JAVASCRIPT]: 'JavaScript',
@@ -122,6 +123,7 @@ export class Skills {
     [this.GITLAB]: 'GitLab',
     [this.GITHUB_ACTIONS]: 'GitHub Actions',
     [this.NOTION]: 'Notion',
+    [this.FRAMER_MOTION]: 'Framer Motion',
   };
 }
 
@@ -186,6 +188,7 @@ export const skillIcon: Record<string, React.ReactNode> = {
   [Skills.GITLAB]: <SiGitlab className="text-[#FC6D26]" />,
   [Skills.GITHUB_ACTIONS]: <SiGithubactions className="text-[#2088FF]" />,
   [Skills.NOTION]: <SiNotion className="text-[#000000] dark:text-[#FFFFFF]" />,
+  [Skills.FRAMER_MOTION]: <></>,
 };
 
 // --------------------------------------------------
@@ -226,6 +229,7 @@ export const mySkills: {
       Skills.LODASH,
       Skills.LIGHTWEIGHT_CHARTS,
       Skills.PWA,
+      Skills.FRAMER_MOTION,
     ],
   },
   {
