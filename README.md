@@ -1,6 +1,6 @@
 # Khoa Nguyen - Portfolio
 
-A modern, responsive portfolio website showcasing my work as a Front End Developer. Built with Next.js and optimized for static hosting with no backend dependencies.
+A modern, responsive portfolio website showcasing my work as a Front End Developer.
 
 ## Tech Stack
 
@@ -25,7 +25,7 @@ A modern, responsive portfolio website showcasing my work as a Front End Develop
    npm install
    ```
 
-3. **Set up environment variables** (optional for contact form)
+3. **Set up environment variables** (optional)
 
    ```bash
    cp .env.local
