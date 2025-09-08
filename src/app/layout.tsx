@@ -99,11 +99,11 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" className={roboto.variable} suppressHydrationWarning>
       <body className={`relative flex min-h-screen flex-col antialiased`}>
-        <SpeedInsights />
-        <Analytics />
         <Providers>
           <Layout>{children}</Layout>
         </Providers>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
