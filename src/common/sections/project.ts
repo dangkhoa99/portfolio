@@ -64,7 +64,7 @@ export const projectData: IProject[] = [
     description: 'A high-performance trading desktop application for internal traders.',
     role: 'Front End Developer.',
     responsibilities: [
-      `Improved market data rendering with Redux Toolkit, RxJS and code splitting, lowering CPU usage by <b>70-80%</b>.`,
+      `Improved market data rendering with Redux Toolkit, RxJS and component splitting, lowering CPU usage by <b>70-80%</b>.`,
       `Enhanced order history rendering with batch updates, cutting CPU usage by <b>80-90%</b>.`,
       `Developed a <b>TradingView-inspired Order Chart</b> with custom indicators and plugins on Lightweight Charts, including Min/Max Price markers, Floating Order Form, Context Menu, Order History, Open Orders with drag-and-drop, and Portfolio management with real-time PnL%.`,
       `Built an interactive Order Book table with click and drag-and-drop actions, enabling traders to execute, modify, and cancel orders seamlessly.`,
