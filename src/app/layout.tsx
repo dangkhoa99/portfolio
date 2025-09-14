@@ -32,6 +32,8 @@ export const metadata: Metadata = {
     'khoanguyen99',
     'Portfolio',
     'Front End Developer',
+    'React Developer',
+    'Software Engineer',
     'ReactJS',
     'TypeScript',
     'Lightweight Charts',
