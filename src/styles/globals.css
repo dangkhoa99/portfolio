@@ -3,22 +3,13 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --size-small: 1.5rem; /* 24px */
-  --size-medium: 2rem; /* 32px */
-  --size-large: 2.5rem; /* 40px */
-
   --background: var(--color-white);
   --foreground: var(--color-black);
   --border-layout-bg: rgba(0, 0, 0, 0.02);
 
   --text-secondary: rgba(0, 0, 0, 0.6);
 
-  --primary-a0: #4fc7ff;
-  --primary-a10: #5cbff0;
-  --primary-a20: #66b7e2;
-  --primary-a30: #6dafd3;
-  --primary-a40: #73a7c5;
-  --primary-a50: #779fb7;
+  --primary-color: #0d47a1;
 
   --surface-a0: #ffffff;
   --surface-a10: #f0f0f0;
@@ -26,12 +17,6 @@
   --surface-a30: #d3d3d3;
   --surface-a40: #c5c5c5;
   --surface-a50: #b6b6b6;
-
-  /* embla carousel */
-  --embla-detail-medium-contrast: rgb(25, 25, 25);
-  --embla-detail-high-contrast: rgb(101, 101, 101);
-  --embla-text-high-contrast-rgb-value: 230, 230, 230;
-  --embla-text-body: rgb(222, 222, 222);
 }
 
 .dark {
@@ -41,12 +26,7 @@
 
   --text-secondary: rgba(255, 255, 255, 0.7);
 
-  --primary-a0: #00adfc;
-  --primary-a10: #4bb6fd;
-  --primary-a20: #6cbffd;
-  --primary-a30: #86c8fe;
-  --primary-a40: #9dd1fe;
-  --primary-a50: #b2dafe;
+  --primary-color: #1e88e5;
 
   --surface-a0: #121212;
   --surface-a10: #282828;
@@ -54,12 +34,6 @@
   --surface-a30: #575757;
   --surface-a40: #717171;
   --surface-a50: #8b8b8b;
-
-  /* embla carousel */
-  --embla-detail-medium-contrast: rgb(25, 25, 25);
-  --embla-detail-high-contrast: rgb(101, 101, 101);
-  --embla-text-high-contrast-rgb-value: 230, 230, 230;
-  --embla-text-body: rgb(222, 222, 222);
 }
 
 @theme {
@@ -88,7 +62,7 @@
 }
 
 @theme static {
-  --color-primary: var(--primary-a0);
+  --color-primary: var(--primary-color);
 }
 
 @layer base {
