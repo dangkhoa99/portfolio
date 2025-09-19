@@ -31,6 +31,7 @@ const CarouselSlide: React.FC<ICarouselSlideProps> = (props) => {
       <Image
         className="object-contain select-none"
         fill
+        unoptimized
         quality={100}
         loading="lazy"
         src={data.src}
