@@ -13,7 +13,7 @@ export const CarouselThumbs: React.FC<ICarouselThumbsProps> = (props) => {
   const { slides, selectedIndex, onClick } = props;
 
   return (
-    <div className="inline-flex gap-8">
+    <div className="flex items-center">
       {slides.map((item, index) => {
         return (
           <CarouselThumb
@@ -40,19 +40,20 @@ const CarouselThumb: React.FC<ICarouselThumbProps> = (props) => {
 
   return (
     <div
+      title={data.alt}
       className={cn(
-        `relative aspect-square flex-none basis-[60px] cursor-pointer touch-manipulation after:absolute after:inset-0 after:border-2 after:content-[''] md:basis-[80px] md:after:border-4`,
-        isSelected ? 'after:border-primary' : 'opacity-50 after:border-transparent',
+        `relative ml-4 aspect-square flex-none basis-[44px] cursor-pointer touch-manipulation after:absolute after:inset-0 after:rounded-sm after:border-1 after:content-[''] hover:opacity-100`,
+        isSelected ? 'after:border-primary' : 'opacity-40 after:border-transparent',
       )}
       onClick={onClick}>
       <Image
         fill
-        className="object-cover select-none"
+        className="rounded-sm object-cover select-none"
         quality={100}
         loading="lazy"
         src={data.src}
         alt={data.alt}
-        sizes="(max-width: 768px) 60px, 80px"
+        sizes="44px"
       />
     </div>
   );

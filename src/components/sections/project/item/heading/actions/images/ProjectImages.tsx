@@ -5,8 +5,7 @@ import React from 'react';
 import { BiImages } from 'react-icons/bi';
 
 import { IProject } from '@/common';
-import { Modal } from '@/components/core/modal';
-import { ProjectCarousel } from './ProjectCarousel';
+import { CarouselModal } from '@/components/core/carousel/CarouselModal';
 
 interface IProps extends IProject {}
 
@@ -37,15 +36,11 @@ const ProjectImagesComponent: React.FC<IProps> = (props) => {
       onClick={(e) => {
         e.stopPropagation();
       }}>
-      <button className="icon__button" onClick={handleOpen}>
+      <button title="images" className="icon__button" onClick={handleOpen}>
         <BiImages />
       </button>
 
-      <Modal isOpen={isOpen} onClose={handleClose}>
-        <div className="absolute-center w-screen md:w-[80%]">
-          <ProjectCarousel slides={images} />
-        </div>
-      </Modal>
+      <CarouselModal isOpen={isOpen} onClose={handleClose} images={images} />
     </div>
   );
 };

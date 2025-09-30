@@ -10,12 +10,6 @@ type TUseCarouselProps = {
 };
 
 // --------------------------------------------------
-useEmblaCarousel.globalOptions = {
-  loop: true,
-  // duration: 30,
-};
-
-// --------------------------------------------------
 export const useCarousel = (opts?: TUseCarouselProps) => {
   const { options, plugins } = opts || {};
   return useEmblaCarousel(options, plugins);
