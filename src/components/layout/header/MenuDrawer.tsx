@@ -64,6 +64,20 @@ export const MenuDrawer: React.FC = () => {
     setIsOpen(false);
   }, []);
 
+  // --------------------------------------------------
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden');
+      return;
+    }
+
+    document.body.classList.remove('overflow-hidden');
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
+
   return (
     <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} className="relative">
       <button
