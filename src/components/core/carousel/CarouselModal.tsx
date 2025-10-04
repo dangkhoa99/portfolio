@@ -63,14 +63,14 @@ export const CarouselModal: React.FC<IProps> = (props) => {
       tabIndex={-1}>
       <button
         title="Close"
-        className="absolute top-8 right-8 z-[2] rounded-full p-8 transition-colors outline-none hover:bg-white/10"
+        className="absolute top-8 right-8 z-[2] rounded-full bg-white/10 p-8 transition-colors outline-none hover:bg-white/10 md:bg-transparent"
         onClick={onClose}>
         <MdClose className="text-2xl text-white" />
       </button>
 
       <div
         aria-hidden
-        className="overlay absolute inset-0 bg-black/60 backdrop-blur-sm"
+        className="overlay absolute inset-0 bg-black backdrop-blur-sm md:bg-black/60"
         onClick={onClose}
       />
 

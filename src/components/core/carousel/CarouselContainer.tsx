@@ -54,7 +54,7 @@ export const CarouselContainer: React.FC<IProps> = (props) => {
           />
 
           <div ref={emblaMainRef} className="h-full overflow-hidden">
-            <CarouselSlides slides={slides} />
+            <CarouselSlides slides={slides} selectedIndex={selectedIndex} />
           </div>
 
           <CarouselArrowBtn
