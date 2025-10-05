@@ -8,7 +8,7 @@ export const SectionTitle: React.FC<ISectionTitleProps> = (props) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <h6 className="emoji__title">{subtitle}</h6>
+      <p className="emoji__title">{subtitle}</p>
       <h2 className="text-2xl font-semibold">{title}</h2>
     </div>
   );

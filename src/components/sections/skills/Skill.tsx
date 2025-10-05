@@ -21,7 +21,8 @@ export const Skill: React.FC = () => {
                 href={`https://wakatime.com/@${wakaTimeId}`}
                 title="View my WakaTime profile"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                aria-label="View my WakaTime profile">
                 <Image
                   src={`https://wakatime.com/badge/user/${wakaTimeId}.svg`}
                   alt="Total time coded since joining WakaTime"

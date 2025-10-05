@@ -30,7 +30,9 @@ const MenuListItemComponent: React.FC<IProps> = (props) => {
         'hover:text-primary text-base font-semibold uppercase transition-colors',
         className,
         isSelected ? 'text-primary' : 'text-foreground',
-      )}>
+      )}
+      title={menu.title}
+      aria-label={`Go to ${menu.title} page`}>
       {menu.title}
     </Link>
   );

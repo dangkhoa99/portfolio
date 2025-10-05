@@ -7,7 +7,11 @@ export default function NotFoundPage() {
 
       <p className="text-base">{`The page you are looking for doesn't exist.`}</p>
 
-      <Link title="Back to HomePage" href="/" className="button outlined">
+      <Link
+        title="Back to HomePage"
+        href="/"
+        className="button outlined"
+        aria-label="Back to homepage">
         Back To HomePage
       </Link>
     </div>

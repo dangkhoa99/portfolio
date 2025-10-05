@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
   return (
     <HeaderWrapper>
       <nav className="border-divider bg-background md:bg-background/30 container flex h-64 items-center justify-between gap-12 border-b md:mt-16 md:rounded-full md:border md:backdrop-blur-md">
-        <Link href="/">
+        <Link href="/" aria-label="Go to homepage">
           <Logo
             width={40}
             height={40}

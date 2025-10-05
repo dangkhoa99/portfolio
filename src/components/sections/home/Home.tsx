@@ -43,7 +43,8 @@ export const Home: React.FC = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="button hover:text-primary">
+              className="button hover:text-primary"
+              aria-label={social.title}>
               <IconComponent aria-hidden size={16} />
               {social.title}
             </Link>
@@ -57,7 +58,8 @@ export const Home: React.FC = () => {
             href={cvUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="button hover:text-primary">
+            className="button hover:text-primary"
+            aria-label="View my CV">
             <TbFileCv aria-hidden size={16} />
             My CV
           </Link>

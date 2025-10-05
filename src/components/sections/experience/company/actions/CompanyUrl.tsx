@@ -20,7 +20,8 @@ export const CompanyUrl: React.FC<IProps> = (props) => {
       className="icon__button"
       href={company.url}
       target="_blank"
-      rel="noopener noreferrer">
+      rel="noopener noreferrer"
+      aria-label={`${company.name} Website`}>
       <BiLinkExternal />
     </Link>
   );

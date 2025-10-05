@@ -22,7 +22,9 @@ export const UrlBtn: React.FC<IProps> = (props) => {
       rel="noopener noreferrer"
       onClick={(e) => {
         e.stopPropagation();
-      }}>
+      }}
+      title="Project Website"
+      aria-label="Project Website">
       <BiLinkExternal />
     </Link>
   );
