@@ -4,9 +4,34 @@ import { Skills } from './skills';
 // --------------------------------------------------
 export const workExperienceData: TExperience[] = [
   {
-    id: 'freelance',
+    id: 'nexpando',
     company: {
-      name: 'Freelance',
+      name: 'Nexpando',
+      url: 'https://nexpando.com/',
+      logo: `/experiences/nexpando.png`,
+      location: 'Ho Chi Minh City, Vietnam',
+      periodFrom: 'Oct 2025',
+      isCurrentEmployer: true,
+    },
+    positions: [
+      {
+        id: 'software_engineer_nexpando',
+        title: 'Software Engineer',
+        periodFrom: 'Oct 2025',
+        type: 'Full-time',
+        descriptions: [`Updating in further details soon...`],
+        skills: [Skills.TYPESCRIPT, Skills.REACT_JS, Skills.MATERIAL_UI],
+      },
+    ],
+  },
+  {
+    id: 'minimal_technology',
+    company: {
+      name: 'Minimal Technology',
+      url: 'https://minimaltek.com',
+      logo: `/experiences/minimal_technology.png`,
+      location: 'Ho Chi Minh City, Vietnam',
+      periodFrom: 'Nov 2022',
       isCurrentEmployer: true,
     },
     positions: [
@@ -31,19 +56,6 @@ export const workExperienceData: TExperience[] = [
           Skills.ZOD,
         ],
       },
-    ],
-  },
-  {
-    id: 'minimal_technology',
-    company: {
-      name: 'Minimal Technology',
-      url: 'https://minimaltek.com',
-      logo: `/experiences/minimal_technology.png`,
-      location: 'Ho Chi Minh City, Vietnam',
-      periodFrom: 'Nov 2022',
-      periodTo: 'Aug 2025',
-    },
-    positions: [
       {
         isExpanded: true,
         id: 'fe_minimal_technology',
