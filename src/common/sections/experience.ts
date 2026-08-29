@@ -1,7 +1,6 @@
 import { TExperience } from '../types';
 import { Skills } from './skills';
 
-// --------------------------------------------------
 export const workExperienceData: TExperience[] = [
   {
     id: 'nexpando',
@@ -15,12 +14,40 @@ export const workExperienceData: TExperience[] = [
     },
     positions: [
       {
+        isExpanded: true,
         id: 'software_engineer_nexpando',
         title: 'Software Engineer',
         periodFrom: 'Oct 2025',
         type: 'Full-time',
-        descriptions: [`Updating in further details soon...`],
-        skills: [Skills.TYPESCRIPT, Skills.REACT_JS, Skills.MATERIAL_UI],
+        descriptions: [
+          `Lead the front end for BANA, a multi-tenant point-of-sale platform for the Vietnam market - five apps in a Bun monorepo (client admin, back office, the Sale terminal, in-table self-ordering and the e-invoice portal) sharing one core package and two design systems.`,
+          `Set the client architecture - dependency-injected data and auth providers, a shared core package, and an admin UI kit plus a sale UI kit the apps consume instead of duplicating components.`,
+          `Delivered the F&B domain end to end - table service, floor plans, reservations and the kitchen display - spanning the Sale terminal and the admin that configures it.`,
+          `Implemented the offline-capable local domain layer in Rust inside the Tauri 2 shell (SQLite via SeaORM), shipping the terminal to desktop, Android, iOS, payment-terminal and browser targets from one React codebase.`,
+          `Rebuilt printing as a service layer and hardened the realtime tier - sale order, reservation and kitchen channels with offline detection, reconnect on foreground and silent auth recovery.`,
+          `Drove the next-generation terminal's migration from Radix to Base UI, and defined the shared primitives - virtualized form autocompletes, virtual list and grid, adaptive dialog surfaces, PDF viewer - adopted across the monorepo.`,
+          `Break down and review the team's work, scoping new apps and handing off delivery while keeping every app on the shared foundation.`,
+        ],
+        skills: [
+          Skills.TYPESCRIPT,
+          Skills.REACT_JS,
+          Skills.TAURI,
+          Skills.RUST,
+          Skills.VITE,
+          Skills.TAILWIND_CSS,
+          Skills.SHADCN_UI,
+          Skills.BASE_UI,
+          Skills.RADIX_UI,
+          Skills.REACT_ADMIN,
+          Skills.REDUX_TOOLKIT,
+          Skills.TANSTACK_QUERY,
+          Skills.TANSTACK_TABLE,
+          Skills.TANSTACK_VIRTUAL,
+          Skills.REACT_HOOK_FORM,
+          Skills.ZOD,
+          Skills.WEB_SOCKET,
+          Skills.PWA,
+        ],
       },
     ],
   },
