@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { cn } from '@/utils/tailwind.util';
+import { cn } from '@/lib/utils';
 
 interface IHeaderWrapperProps {
   children: React.ReactNode;
@@ -14,15 +14,12 @@ const HALF_THRESHOLD = THRESHOLD / 2;
 export const HeaderWrapper: React.FC<IHeaderWrapperProps> = (props) => {
   const { children } = props;
 
-  // --------------------------------------------------
   const frame = React.useRef(0);
   const lastScrollY = React.useRef(0);
   const ticking = React.useRef(false);
 
-  // --------------------------------------------------
   const [isShow, setIsShow] = React.useState(true);
 
-  // --------------------------------------------------
   const updateScroll = React.useCallback(() => {
     const currentScrollY = window.scrollY;
     const diff = currentScrollY - lastScrollY.current;
@@ -40,7 +37,6 @@ export const HeaderWrapper: React.FC<IHeaderWrapperProps> = (props) => {
     ticking.current = false;
   }, []);
 
-  // --------------------------------------------------
   const handleScroll = React.useCallback(() => {
     if (ticking.current) {
       return;
@@ -51,7 +47,6 @@ export const HeaderWrapper: React.FC<IHeaderWrapperProps> = (props) => {
     ticking.current = true;
   }, [updateScroll]);
 
-  // --------------------------------------------------
   React.useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {

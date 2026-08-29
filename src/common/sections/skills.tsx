@@ -1,9 +1,11 @@
 import {
   SiAxios,
-  SiCss3,
+  SiBaseui,
+  SiCss,
   SiElectron,
   SiFigma,
   SiFirebase,
+  SiFramer,
   SiGit,
   SiGithub,
   SiGithubactions,
@@ -18,6 +20,7 @@ import {
   SiPostman,
   SiPwa,
   SiPython,
+  SiRadixui,
   SiReact,
   SiReacthookform,
   SiReactivex,
@@ -26,20 +29,24 @@ import {
   SiReacttable,
   SiRedux,
   SiReduxsaga,
+  SiRust,
+  SiShadcnui,
   SiSocketdotio,
   SiStorybook,
   SiTailwindcss,
+  SiTanstack,
+  SiTauri,
   SiTradingview,
   SiTypescript,
   SiVite,
   SiZod,
 } from 'react-icons/si';
 
-// --------------------------------------------------
 export class Skills {
   static readonly JAVASCRIPT = 'JAVASCRIPT';
   static readonly TYPESCRIPT = 'TYPESCRIPT';
   static readonly PYTHON = 'PYTHON';
+  static readonly RUST = 'RUST';
 
   static readonly HTML = 'HTML';
   static readonly CSS = 'CSS';
@@ -50,6 +57,10 @@ export class Skills {
   static readonly NEXT_JS = 'NEXT_JS';
   static readonly TAILWIND_CSS = 'TAILWIND_CSS';
   static readonly REACT_ADMIN = 'REACT_ADMIN';
+  static readonly TAURI = 'TAURI';
+  static readonly SHADCN_UI = 'SHADCN_UI';
+  static readonly BASE_UI = 'BASE_UI';
+  static readonly RADIX_UI = 'RADIX_UI';
 
   static readonly REDUX_TOOLKIT = 'REDUX_TOOLKIT';
   static readonly TANSTACK_QUERY = 'TANSTACK_QUERY';
@@ -86,12 +97,17 @@ export class Skills {
     [this.JAVASCRIPT]: 'JavaScript',
     [this.TYPESCRIPT]: 'TypeScript',
     [this.PYTHON]: 'Python',
+    [this.RUST]: 'Rust',
     [this.REACT_JS]: 'ReactJS',
     [this.ELECTRON_JS]: 'ElectronJS',
     [this.NEXT_JS]: 'NextJS',
     [this.TAILWIND_CSS]: 'Tailwind CSS',
     [this.MATERIAL_UI]: 'Material UI',
     [this.REACT_ADMIN]: 'React Admin',
+    [this.TAURI]: 'Tauri',
+    [this.SHADCN_UI]: 'shadcn/ui',
+    [this.BASE_UI]: 'Base UI',
+    [this.RADIX_UI]: 'Radix UI',
     [this.REDUX_TOOLKIT]: 'Redux Toolkit',
     [this.TANSTACK_QUERY]: 'TanStack Query',
     [this.TANSTACK_VIRTUAL]: 'TanStack Virtual',
@@ -127,7 +143,6 @@ export class Skills {
   };
 }
 
-// --------------------------------------------------
 export class SkillCategories {
   static readonly PROGRAMMING_LANGUAGES = 'PROGRAMMING_LANGUAGES';
   static readonly LIBRARIES_FRAMEWORKS = 'LIBRARIES_FRAMEWORKS';
@@ -146,24 +161,28 @@ export class SkillCategories {
   };
 }
 
-// --------------------------------------------------
 export const skillIcon: Record<string, React.ReactNode> = {
   [Skills.JAVASCRIPT]: <SiJavascript className="text-[#F7DF1E]" />,
   [Skills.TYPESCRIPT]: <SiTypescript className="text-[#3178C6]" />,
   [Skills.PYTHON]: <SiPython className="text-[#3776AB]" />,
+  [Skills.RUST]: <SiRust className="text-foreground" />,
   [Skills.REACT_JS]: <SiReact className="text-[#61DAFB]" />,
   [Skills.ELECTRON_JS]: <SiElectron className="text-[#47848F]" />,
   [Skills.NEXT_JS]: <SiNextdotjs className="text-foreground" />,
   [Skills.TAILWIND_CSS]: <SiTailwindcss className="text-[#06B6D4]" />,
   [Skills.MATERIAL_UI]: <SiMui className="text-[#007FFF]" />,
   [Skills.REACT_ADMIN]: <></>,
+  [Skills.TAURI]: <SiTauri className="text-[#24C8D8]" />,
+  [Skills.SHADCN_UI]: <SiShadcnui className="text-foreground" />,
+  [Skills.BASE_UI]: <SiBaseui className="text-foreground" />,
+  [Skills.RADIX_UI]: <SiRadixui className="text-foreground" />,
   [Skills.REDUX_TOOLKIT]: <SiRedux className="text-[#764ABC]" />,
   [Skills.TANSTACK_QUERY]: <SiReactquery className="text-[#FF4154]" />,
-  [Skills.TANSTACK_VIRTUAL]: <></>,
+  [Skills.TANSTACK_VIRTUAL]: <SiTanstack className="text-[#FF4154]" />,
   [Skills.TANSTACK_TABLE]: <SiReacttable className="text-[#FF4154]" />,
   [Skills.RXJS]: <SiReactivex className="text-[#B7178C]" />,
   [Skills.SOCKET_IO]: <SiSocketdotio className="text-[#010101] dark:text-[#FFFFFF]" />,
-  [Skills.ELECTRON_UPDATER]: <></>,
+  [Skills.ELECTRON_UPDATER]: <SiElectron className="text-[#47848F]" />,
   [Skills.LIGHTWEIGHT_CHARTS]: <SiTradingview className="text-[#131622] dark:text-[#FFFFFF]" />,
   [Skills.REDUX_SAGA]: <SiReduxsaga className="text-[#999999] dark:text-[#FFFFFF]" />,
   [Skills.WEB_SOCKET]: <></>,
@@ -174,7 +193,7 @@ export const skillIcon: Record<string, React.ReactNode> = {
   [Skills.FIREBASE]: <SiFirebase className="text-[#DD2C00]" />,
   [Skills.REACT_KONVA]: <SiKonva className="text-[#0D83CD]" />,
   [Skills.HTML]: <SiHtml5 className="text-[#E34F26]" />,
-  [Skills.CSS]: <SiCss3 className="text-[#1572B6]" />,
+  [Skills.CSS]: <SiCss className="text-[#1572B6]" />,
   [Skills.REACT_ROUTER]: <SiReactrouter className="text-[#CA4245]" />,
   [Skills.LODASH]: <SiLodash className="text-[#3492FF]" />,
   [Skills.POSTMAN]: <SiPostman className="text-[#FF6C37]" />,
@@ -188,10 +207,9 @@ export const skillIcon: Record<string, React.ReactNode> = {
   [Skills.GITLAB]: <SiGitlab className="text-[#FC6D26]" />,
   [Skills.GITHUB_ACTIONS]: <SiGithubactions className="text-[#2088FF]" />,
   [Skills.NOTION]: <SiNotion className="text-[#000000] dark:text-[#FFFFFF]" />,
-  [Skills.FRAMER_MOTION]: <></>,
+  [Skills.FRAMER_MOTION]: <SiFramer className="text-[#0055FF]" />,
 };
 
-// --------------------------------------------------
 export const mySkills: {
   id: string;
   title: string;
@@ -200,7 +218,7 @@ export const mySkills: {
   {
     id: SkillCategories.PROGRAMMING_LANGUAGES,
     title: SkillCategories.translate[SkillCategories.PROGRAMMING_LANGUAGES],
-    skills: [Skills.JAVASCRIPT, Skills.TYPESCRIPT, Skills.PYTHON],
+    skills: [Skills.JAVASCRIPT, Skills.TYPESCRIPT, Skills.PYTHON, Skills.RUST],
   },
   {
     id: SkillCategories.LIBRARIES_FRAMEWORKS,
@@ -209,10 +227,14 @@ export const mySkills: {
       Skills.REACT_JS,
       Skills.NEXT_JS,
       Skills.ELECTRON_JS,
+      Skills.TAURI,
       Skills.REACT_ADMIN,
       Skills.REACT_KONVA,
       Skills.REACT_ROUTER,
       Skills.TAILWIND_CSS,
+      Skills.SHADCN_UI,
+      Skills.BASE_UI,
+      Skills.RADIX_UI,
       Skills.MATERIAL_UI,
       Skills.MATERIAL_REACT_TABLE,
       Skills.TANSTACK_QUERY,

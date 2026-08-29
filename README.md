@@ -4,11 +4,12 @@ A modern, responsive portfolio website showcasing my work as a Front End Develop
 
 ## Tech Stack
 
-- **Framework**: Next.js 15
+- **Framework**: Next.js 16 (App Router, Turbopack)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: React Icons
+- **Styling**: Tailwind CSS 4
+- **Components**: shadcn/ui on Base UI
+- **Animations**: Motion
+- **Icons**: React Icons + Lucide
 
 ## Installation
 

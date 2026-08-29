@@ -2,45 +2,37 @@
 
 import React from 'react';
 
-import { useTheme } from 'next-themes';
+import { Moon, Sun } from 'lucide-react';
 
-import { MoonIcon, SunIcon } from '@/assets/icons';
+import { Button } from '@/components/ui/button';
+import { TThemeTransitionOrigin, useThemeTransition } from '@/hooks/useThemeTransition';
 
 export const ThemeToggleBtn: React.FC = () => {
-  // --------------------------------------------------
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setThemeWithTransition } = useThemeTransition();
 
-  // --------------------------------------------------
   const toggleTheme = React.useCallback(
-    (opts: { currentTheme?: string }) => {
-      if (typeof window === 'undefined') {
-        return;
+    (event: React.MouseEvent<HTMLElement>) => {
+      const nextTheme = resolvedTheme === 'light' ? 'dark' : 'light';
+
+      let origin: TThemeTransitionOrigin = event;
+
+      if (event.detail === 0) {
+        const rect = event.currentTarget.getBoundingClientRect();
+        origin = {
+          clientX: rect.left + rect.width / 2,
+          clientY: rect.top + rect.height / 2,
+        };
       }
 
-      const { currentTheme } = opts;
-      const otherTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-      if (!document.startViewTransition) {
-        setTheme(otherTheme);
-        return;
-      }
-
-      document.startViewTransition(() => {
-        setTheme(otherTheme);
-      });
+      setThemeWithTransition(nextTheme, origin);
     },
-    [setTheme],
+    [resolvedTheme, setThemeWithTransition],
   );
 
   return (
-    <button
-      className="icon__button--squared"
-      aria-label={`Toggle theme`}
-      onClick={() => {
-        toggleTheme({ currentTheme: resolvedTheme });
-      }}>
-      <SunIcon className="dark:hidden" />
-      <MoonIcon className="hidden dark:inline-block" />
-    </button>
+    <Button variant="subtle-outline" size="icon" aria-label="Toggle theme" onClick={toggleTheme}>
+      <Sun className="dark:hidden" />
+      <Moon className="hidden dark:inline-block" />
+    </Button>
   );
 };

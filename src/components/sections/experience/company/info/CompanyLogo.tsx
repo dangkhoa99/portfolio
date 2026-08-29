@@ -10,7 +10,7 @@ export const CompanyLogo: React.FC<IProps> = (props) => {
   return (
     <div
       aria-hidden
-      className="border-divider bg-card-bg flex h-32 w-32 items-center justify-center rounded-full border p-4">
+      className="border-border bg-card flex h-8 w-8 items-center justify-center rounded-full border p-1">
       {company.logo ? (
         <Image
           src={company.logo}
@@ -23,7 +23,7 @@ export const CompanyLogo: React.FC<IProps> = (props) => {
           loading="lazy"
         />
       ) : (
-        <div className="bg-text-secondary h-8 w-8 rounded-full" />
+        <div className="bg-muted-foreground h-2 w-2 rounded-full" />
       )}
     </div>
   );

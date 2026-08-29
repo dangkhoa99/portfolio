@@ -7,11 +7,11 @@ export const PositionCollapse: React.FC<IProps> = (props) => {
   const { descriptions, skills } = props;
 
   return (
-    <div className="flex flex-col gap-12 pl-44 md:pl-60">
-      <ul className="flex flex-col gap-8">
+    <div className="flex flex-col gap-3 pl-11 md:pl-15">
+      <ul className="flex flex-col gap-2">
         {descriptions?.map((desc, idx) => {
           return (
-            <li key={idx} className="flex gap-8 text-base">
+            <li key={idx} className="flex gap-2 text-base">
               <span className="select-none">-</span>
               {desc}
             </li>

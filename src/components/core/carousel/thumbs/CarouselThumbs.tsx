@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { ICarouselSlide } from '@/common';
-import { cn } from '@/utils/tailwind.util';
+import { cn } from '@/lib/utils';
 
 export interface ICarouselThumbsProps {
   slides: ICarouselSlide[];
@@ -28,7 +28,6 @@ export const CarouselThumbs: React.FC<ICarouselThumbsProps> = (props) => {
   );
 };
 
-// ==================================================
 interface ICarouselThumbProps {
   data: ICarouselSlide;
   isSelected: boolean;
@@ -42,7 +41,7 @@ const CarouselThumb: React.FC<ICarouselThumbProps> = (props) => {
     <div
       title={data.alt}
       className={cn(
-        `relative ml-4 aspect-square flex-none basis-[44px] cursor-pointer touch-manipulation after:absolute after:inset-0 after:rounded-sm after:border-1 after:content-[''] hover:opacity-100`,
+        `relative ml-1 aspect-square flex-none basis-[44px] cursor-pointer touch-manipulation after:absolute after:inset-0 after:rounded-sm after:border-1 after:content-[''] hover:opacity-100`,
         isSelected ? 'after:border-primary' : 'opacity-40 after:border-transparent',
       )}
       onClick={onClick}>

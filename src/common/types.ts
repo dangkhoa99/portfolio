@@ -1,17 +1,18 @@
+import type { LucideIcon } from 'lucide-react';
+import type { IconType } from 'react-icons/lib';
 import z from 'zod';
 import { contactFormSchema } from './schema';
 
-// --------------------------------------------------
 export type IdType = string | number;
 
-// --------------------------------------------------
+export type TIcon = IconType | LucideIcon;
+
 export type TExperience = {
   id: string;
   company: TExperienceCompany;
   positions: TExperiencePosition[];
 };
 
-// --------------------------------------------------
 export type TExperienceCompany = {
   name: string;
   url?: string;
@@ -23,7 +24,6 @@ export type TExperienceCompany = {
   periodTo?: string;
 };
 
-// --------------------------------------------------
 export type TExperiencePosition = {
   id: string;
   title: string;
@@ -35,17 +35,14 @@ export type TExperiencePosition = {
   isExpanded?: boolean;
 };
 
-// --------------------------------------------------
 export type TContactFormValue = z.infer<typeof contactFormSchema>;
 
-// --------------------------------------------------
 export interface ICarouselSlide {
   id: IdType;
   src: string;
   alt: string;
 }
 
-// --------------------------------------------------
 export interface IProject {
   id: string;
   title: string;
@@ -56,6 +53,7 @@ export interface IProject {
   responsibilities?: string[];
   skills?: string[];
   logo?: string;
+  logoDark?: string;
   url?: string;
   images?: ICarouselSlide[];
   isExpanded?: boolean;

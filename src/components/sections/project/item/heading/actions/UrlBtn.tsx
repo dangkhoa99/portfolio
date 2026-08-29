@@ -1,31 +1,28 @@
-import Link from 'next/link';
-import { BiLinkExternal } from 'react-icons/bi';
+import { ExternalLink } from 'lucide-react';
 
 import { IProject } from '@/common';
+import { LinkButton } from '@/components/core/button';
 
 interface IProps extends IProject {}
 
 export const UrlBtn: React.FC<IProps> = (props) => {
   const { url } = props;
 
-  // --------------------------------------------------
   if (!url) {
     return null;
   }
 
   return (
-    <Link
-      role="button"
-      className="icon__button"
+    <LinkButton
+      variant="subtle"
+      size="icon"
+      className="pointer-events-auto"
+      title="Project Website"
+      aria-label="Project Website"
       href={url}
       target="_blank"
-      rel="noopener noreferrer"
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
-      title="Project Website"
-      aria-label="Project Website">
-      <BiLinkExternal />
-    </Link>
+      rel="noopener noreferrer">
+      <ExternalLink />
+    </LinkButton>
   );
 };

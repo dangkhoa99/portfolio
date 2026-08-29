@@ -1,0 +1,216 @@
+@theme {
+  --color-sage-50: oklch(0.974 0.0054 17.25);
+  --color-sage-100: oklch(0.9457 0.0119 17.37);
+  --color-sage-200: oklch(0.8863 0.0223 17.58);
+  --color-sage-300: oklch(0.7867 0.0432 18.11);
+  --color-sage-400: oklch(0.6862 0.0663 18.91);
+  --color-sage-500: oklch(0.5783 0.1041 20.77); /* #af5f5f; */
+  --color-sage-600: oklch(0.5137 0.1018 21.24);
+  --color-sage-700: oklch(0.4376 0.0851 21.14);
+  --color-sage-800: oklch(0.3618 0.0673 20.93);
+  --color-sage-900: oklch(0.2802 0.0468 20.45);
+  --color-sage-950: oklch(0.1943 0.0255 19.64);
+
+  --color-ember-50: oklch(0.9777 0.0085 44.89);
+  --color-ember-100: oklch(0.9432 0.0225 45.6);
+  --color-ember-200: oklch(0.882 0.0466 43.29);
+  --color-ember-300: oklch(0.7983 0.08 43.26);
+  --color-ember-400: oklch(0.6687 0.1216 36.64); /* #d4785e; */
+  --color-ember-500: oklch(0.6129 0.1281 36.75);
+  --color-ember-600: oklch(0.5368 0.1213 35.17);
+  --color-ember-700: oklch(0.4578 0.1007 35.49);
+  --color-ember-800: oklch(0.3754 0.0786 35.12);
+  --color-ember-900: oklch(0.2901 0.0562 33.96);
+  --color-ember-950: oklch(0.198 0.0317 33.36);
+
+  --color-blush-50: oklch(0.9779 0.0042 56.38);
+  --color-blush-100: oklch(0.949 0.0112 45.72);
+  --color-blush-200: oklch(0.8885 0.0228 45.59);
+  --color-blush-300: oklch(0.7965 0.0403 44.05);
+  --color-blush-400: oklch(0.6999 0.0703 45.33); /* #C4917A; */
+  --color-blush-500: oklch(0.6287 0.0758 43.94);
+  --color-blush-600: oklch(0.5514 0.0725 43.57);
+  --color-blush-700: oklch(0.469 0.0612 42.11);
+  --color-blush-800: oklch(0.385 0.0485 41.97);
+  --color-blush-900: oklch(0.2987 0.0335 42.7);
+  --color-blush-950: oklch(0.2028 0.0184 42.8);
+
+  --color-amber-50: oklch(0.9773 0.0062 75.41);
+  --color-amber-100: oklch(0.9469 0.0187 75.32);
+  --color-amber-200: oklch(0.8825 0.0374 72.58);
+  --color-amber-300: oklch(0.7905 0.0634 73.08);
+  --color-amber-400: oklch(0.6805 0.0955 59.82); /* #c48a5a; */
+  --color-amber-500: oklch(0.6064 0.0915 58.54);
+  --color-amber-600: oklch(0.5258 0.0808 56.75);
+  --color-amber-700: oklch(0.4485 0.0671 57.34);
+  --color-amber-800: oklch(0.3693 0.0529 56.17);
+  --color-amber-900: oklch(0.2841 0.0365 55.07);
+  --color-amber-950: oklch(0.1961 0.02 59.13);
+
+  --color-dusk-50: oklch(0.9732 0.0041 271.37);
+  --color-dusk-100: oklch(0.9398 0.01 267.36);
+  --color-dusk-200: oklch(0.8668 0.0217 268.41);
+  --color-dusk-300: oklch(0.7628 0.0334 266.1);
+  --color-dusk-400: oklch(0.6023 0.0641 267.57); /* #7080A8; */
+  --color-dusk-500: oklch(0.5275 0.0663 267.33);
+  --color-dusk-600: oklch(0.4535 0.0599 268.31);
+  --color-dusk-700: oklch(0.3864 0.0497 268.89);
+  --color-dusk-800: oklch(0.3202 0.0389 269.91);
+  --color-dusk-900: oklch(0.2531 0.0258 268.2);
+  --color-dusk-950: oklch(0.1789 0.0148 272.38);
+}
+
+.theme-sage,
+.theme-sage [data-radix-popper-content-wrapper] {
+  --primary: var(--color-sage-600);
+  --primary-foreground: var(--color-sage-50);
+  --ring: var(--color-sage-400);
+  --sidebar-primary: var(--color-sage-600);
+  --sidebar-primary-foreground: var(--color-sage-50);
+  --sidebar-ring: var(--color-sage-400);
+
+  --primary-50: var(--color-sage-50);
+  --primary-100: var(--color-sage-100);
+  --primary-200: var(--color-sage-200);
+  --primary-300: var(--color-sage-300);
+  --primary-400: var(--color-sage-400);
+  --primary-500: var(--color-sage-500);
+  --primary-600: var(--color-sage-600);
+  --primary-700: var(--color-sage-700);
+  --primary-800: var(--color-sage-800);
+  --primary-900: var(--color-sage-900);
+  --primary-950: var(--color-sage-950);
+
+  @variant dark {
+    --primary: var(--color-sage-500);
+    --primary-foreground: var(--color-sage-50);
+    --ring: var(--color-sage-900);
+    --sidebar-primary: var(--color-sage-500);
+    --sidebar-primary-foreground: var(--color-sage-50);
+    --sidebar-ring: var(--color-sage-900);
+  }
+}
+
+.theme-ember,
+.theme-ember [data-radix-popper-content-wrapper] {
+  --primary: var(--color-ember-500);
+  --primary-foreground: var(--color-ember-50);
+  --ring: var(--color-ember-300);
+  --sidebar-primary: var(--color-ember-500);
+  --sidebar-primary-foreground: var(--color-ember-50);
+  --sidebar-ring: var(--color-ember-300);
+
+  --primary-50: var(--color-ember-50);
+  --primary-100: var(--color-ember-100);
+  --primary-200: var(--color-ember-200);
+  --primary-300: var(--color-ember-300);
+  --primary-400: var(--color-ember-400);
+  --primary-500: var(--color-ember-500);
+  --primary-600: var(--color-ember-600);
+  --primary-700: var(--color-ember-700);
+  --primary-800: var(--color-ember-800);
+  --primary-900: var(--color-ember-900);
+  --primary-950: var(--color-ember-950);
+
+  @variant dark {
+    --primary: var(--color-ember-400);
+    --primary-foreground: var(--color-ember-50);
+    --ring: var(--color-ember-900);
+    --sidebar-primary: var(--color-ember-400);
+    --sidebar-primary-foreground: var(--color-ember-50);
+    --sidebar-ring: var(--color-ember-900);
+  }
+}
+
+.theme-amber,
+.theme-amber [data-radix-popper-content-wrapper] {
+  --primary: var(--color-amber-500);
+  --primary-foreground: var(--color-amber-50);
+  --ring: var(--color-amber-300);
+  --sidebar-primary: var(--color-amber-500);
+  --sidebar-primary-foreground: var(--color-amber-50);
+  --sidebar-ring: var(--color-amber-300);
+
+  --primary-50: var(--color-amber-50);
+  --primary-100: var(--color-amber-100);
+  --primary-200: var(--color-amber-200);
+  --primary-300: var(--color-amber-300);
+  --primary-400: var(--color-amber-400);
+  --primary-500: var(--color-amber-500);
+  --primary-600: var(--color-amber-600);
+  --primary-700: var(--color-amber-700);
+  --primary-800: var(--color-amber-800);
+  --primary-900: var(--color-amber-900);
+  --primary-950: var(--color-amber-950);
+
+  @variant dark {
+    --primary: var(--color-amber-400);
+    --primary-foreground: var(--color-amber-50);
+    --ring: var(--color-amber-900);
+    --sidebar-primary: var(--color-amber-400);
+    --sidebar-primary-foreground: var(--color-amber-50);
+    --sidebar-ring: var(--color-amber-900);
+  }
+}
+
+.theme-blush,
+.theme-blush [data-radix-popper-content-wrapper] {
+  --primary: var(--color-blush-500);
+  --primary-foreground: var(--color-blush-50);
+  --ring: var(--color-blush-300);
+  --sidebar-primary: var(--color-blush-500);
+  --sidebar-primary-foreground: var(--color-blush-50);
+  --sidebar-ring: var(--color-blush-300);
+
+  --primary-50: var(--color-blush-50);
+  --primary-100: var(--color-blush-100);
+  --primary-200: var(--color-blush-200);
+  --primary-300: var(--color-blush-300);
+  --primary-400: var(--color-blush-400);
+  --primary-500: var(--color-blush-500);
+  --primary-600: var(--color-blush-600);
+  --primary-700: var(--color-blush-700);
+  --primary-800: var(--color-blush-800);
+  --primary-900: var(--color-blush-900);
+  --primary-950: var(--color-blush-950);
+
+  @variant dark {
+    --primary: var(--color-blush-400);
+    --primary-foreground: var(--color-blush-50);
+    --ring: var(--color-blush-900);
+    --sidebar-primary: var(--color-blush-400);
+    --sidebar-primary-foreground: var(--color-blush-50);
+    --sidebar-ring: var(--color-blush-900);
+  }
+}
+
+.theme-dusk,
+.theme-dusk [data-radix-popper-content-wrapper] {
+  --primary: var(--color-dusk-500);
+  --primary-foreground: var(--color-dusk-50);
+  --ring: var(--color-dusk-300);
+  --sidebar-primary: var(--color-dusk-500);
+  --sidebar-primary-foreground: var(--color-dusk-50);
+  --sidebar-ring: var(--color-dusk-300);
+
+  --primary-50: var(--color-dusk-50);
+  --primary-100: var(--color-dusk-100);
+  --primary-200: var(--color-dusk-200);
+  --primary-300: var(--color-dusk-300);
+  --primary-400: var(--color-dusk-400);
+  --primary-500: var(--color-dusk-500);
+  --primary-600: var(--color-dusk-600);
+  --primary-700: var(--color-dusk-700);
+  --primary-800: var(--color-dusk-800);
+  --primary-900: var(--color-dusk-900);
+  --primary-950: var(--color-dusk-950);
+
+  @variant dark {
+    --primary: var(--color-dusk-400);
+    --primary-foreground: var(--color-dusk-50);
+    --ring: var(--color-dusk-900);
+    --sidebar-primary: var(--color-dusk-400);
+    --sidebar-primary-foreground: var(--color-dusk-50);
+    --sidebar-ring: var(--color-dusk-900);
+  }
+}

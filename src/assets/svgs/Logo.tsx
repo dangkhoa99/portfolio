@@ -1,4 +1,4 @@
-import { cn } from '@/utils/tailwind.util';
+import { cn } from '@/lib/utils';
 
 export const Logo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   const { className, ...rest } = props;

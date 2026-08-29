@@ -5,10 +5,8 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 
 export const useVisitors = () => {
-  // --------------------------------------------------
   const path = usePathname();
 
-  // --------------------------------------------------
   const trackVisitor = React.useCallback(async () => {
     try {
       const today = new Date().toISOString().slice(0, 10);
@@ -33,7 +31,6 @@ export const useVisitors = () => {
     }
   }, [path]);
 
-  // --------------------------------------------------
   React.useEffect(() => {
     trackVisitor();
 

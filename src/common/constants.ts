@@ -1,31 +1,24 @@
-import { SnackbarOrigin } from 'notistack';
+import { Mail } from 'lucide-react';
 import { BsLinkedin } from 'react-icons/bs';
-import { IconType } from 'react-icons/lib';
 import { SiGithub } from 'react-icons/si';
-import { TContactFormValue } from './types';
-import { MdEmail } from 'react-icons/md';
+import { TContactFormValue, TIcon } from './types';
 
-// --------------------------------------------------
 export class AppConst {
   static readonly MAX_NUMBER = Number.MAX_SAFE_INTEGER;
   static readonly MIN_NUMBER = Number.MIN_SAFE_INTEGER;
 
-  static readonly DEFAULT_DEBOUNCE_TIME = 500; // 500ms
+  static readonly DEFAULT_DEBOUNCE_TIME = 500;
 
   static readonly TIME_ZONE = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-  static readonly NOTISTACK_MAX_SNACKBAR = 3;
-  static readonly NOTISTACK_ANCHOR_ORIGIN: SnackbarOrigin = {
-    vertical: 'bottom',
-    horizontal: 'center',
-  };
-  static readonly NOTISTACK_AUTO_HIDE_DURATION = 5000; // 5s
+  static readonly TOAST_VISIBLE_LIMIT = 3;
+  static readonly TOAST_POSITION = 'bottom-center' as const;
+  static readonly TOAST_DURATION = 5000;
 
   static readonly DOMAIN = `khoanguyen99.vercel.app`;
   static readonly WEBSITE = `https://${this.DOMAIN}`;
 }
 
-// --------------------------------------------------
 export class AppRoutes {
   static readonly HOME = '/';
   static readonly EXPERIENCE = '/experience';
@@ -40,7 +33,6 @@ export class AppRoutes {
   };
 }
 
-// --------------------------------------------------
 export class Menu {
   static readonly HOME = 'home';
   static readonly EXPERIENCE = 'experience';
@@ -64,7 +56,6 @@ export class Menu {
   ];
 }
 
-// --------------------------------------------------
 export class Socials {
   static readonly LINKEDIN = 'LINKEDIN';
   static readonly GITHUB = 'GITHUB';
@@ -84,17 +75,17 @@ export class Socials {
     [this.MAIL_TO]: 'mailto:khoanguyen99.dev@gmail.com',
   };
 
-  static readonly icons: Record<string, IconType> = {
+  static readonly icons: Record<string, TIcon> = {
     [this.LINKEDIN]: BsLinkedin,
     [this.GITHUB]: SiGithub,
-    [this.MAIL_TO]: MdEmail,
+    [this.MAIL_TO]: Mail,
   };
 
   static readonly options: {
     id: string;
     title: string;
     url: string;
-    icon: IconType;
+    icon: TIcon;
   }[] = [
     {
       id: this.LINKEDIN,
@@ -117,7 +108,6 @@ export class Socials {
   ];
 }
 
-// --------------------------------------------------
 export const defaultContactFormValue: TContactFormValue = {
   name: '',
   email: '',

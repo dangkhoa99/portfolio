@@ -13,7 +13,6 @@ interface IProps {
 export const CarouselContainer: React.FC<IProps> = (props) => {
   const { images: slides } = props;
 
-  // --------------------------------------------------
   const [emblaMainRef, emblaMainApi] = useCarousel({
     options: {
       loop: true,
@@ -25,7 +24,6 @@ export const CarouselContainer: React.FC<IProps> = (props) => {
     },
   });
 
-  // --------------------------------------------------
   const [emblaThumbsRef, emblaThumbsApi] = useCarousel({
     options: {
       loop: false,
@@ -34,18 +32,16 @@ export const CarouselContainer: React.FC<IProps> = (props) => {
     },
   });
 
-  // --------------------------------------------------
   const { selectedIndex, onClick: onThumbClick } = useCarouselThumb({
     emblaApi: emblaMainApi,
     emblaThumbsApi,
   });
 
-  // --------------------------------------------------
   const { disabledBtn, onClick } = usePrevNextButtons({ emblaApi: emblaMainApi });
 
   return (
     <>
-      <div className="pointer-events-none h-[calc(100vh-60px)] w-full pb-8 md:pt-64">
+      <div className="pointer-events-none h-[calc(100vh-60px)] w-full pb-2 md:pt-16">
         <div className="relative h-full w-full">
           <CarouselArrowBtn
             variant="prev"
@@ -65,7 +61,7 @@ export const CarouselContainer: React.FC<IProps> = (props) => {
         </div>
       </div>
 
-      <div ref={emblaThumbsRef} className="container mx-4 h-60 overflow-hidden md:mx-auto">
+      <div ref={emblaThumbsRef} className="container mx-1 h-15 overflow-hidden md:mx-auto">
         <CarouselThumbs slides={slides} selectedIndex={selectedIndex} onClick={onThumbClick} />
       </div>
     </>

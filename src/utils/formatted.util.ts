@@ -1,4 +1,3 @@
-// --------------------------------------------------
 export const getPeriodFormat = (opts: { from?: string; to?: string }) => {
   const { from, to } = opts;
 

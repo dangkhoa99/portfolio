@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { cn } from '@/utils/tailwind.util';
+import { cn } from '@/lib/utils';
 
 interface IProps {
   className?: string;
@@ -15,10 +15,8 @@ interface IProps {
 const MenuListItemComponent: React.FC<IProps> = (props) => {
   const { menu, className } = props;
 
-  // --------------------------------------------------
   const pathname = usePathname();
 
-  // --------------------------------------------------
   const isSelected = React.useMemo(() => {
     return pathname === menu.route;
   }, [menu.route, pathname]);

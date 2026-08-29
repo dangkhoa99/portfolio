@@ -8,24 +8,22 @@ interface IProps extends TExperience {}
 export const CompanyInfo: React.FC<IProps> = (props) => {
   const { company } = props;
 
-  // --------------------------------------------------
   const period = getPeriodFormat({ from: company.periodFrom, to: company.periodTo });
 
-  // --------------------------------------------------
   const subtitle = company.location ? `${company.location} | ${period}` : period;
 
   return (
-    <div className="flex items-center gap-12">
+    <div className="flex items-center gap-3">
       <CompanyLogo {...props} />
 
       <div className="flex flex-col">
-        <div className="flex items-center gap-12">
+        <div className="flex items-center gap-3">
           <h6 className="text-base font-semibold">{company.name}</h6>
 
           {!!company.isCurrentEmployer && <CurrentDot />}
         </div>
 
-        <p className="text-text-secondary text-xs font-medium">{subtitle}</p>
+        <p className="text-muted-foreground text-xs font-medium">{subtitle}</p>
       </div>
     </div>
   );

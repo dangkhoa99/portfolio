@@ -22,13 +22,10 @@ const doubleClickProps = {
 export const CarouselSlide: React.FC<ICarouselSlideProps> = (props) => {
   const { data, isSelected } = props;
 
-  // --------------------------------------------------
   const transformRef = React.useRef<ReactZoomPanPinchRef>(null);
 
-  // --------------------------------------------------
   const [disabledPanning, setDisabledPanning] = React.useState(false);
 
-  // --------------------------------------------------
   const panningProps = React.useMemo(() => {
     return {
       disabled: disabledPanning,
@@ -36,15 +33,13 @@ export const CarouselSlide: React.FC<ICarouselSlideProps> = (props) => {
     };
   }, [disabledPanning]);
 
-  // --------------------------------------------------
-  const onTransformed = React.useCallback(
+  const onTransform = React.useCallback(
     (_: ReactZoomPanPinchRef, state: { scale: number; positionX: number; positionY: number }) => {
       setDisabledPanning(state.scale <= 1);
     },
     [],
   );
 
-  // --------------------------------------------------
   React.useEffect(() => {
     transformRef.current?.resetTransform();
 
@@ -63,7 +58,7 @@ export const CarouselSlide: React.FC<ICarouselSlideProps> = (props) => {
         maxScale={MAX_SCALE}
         doubleClick={doubleClickProps}
         panning={panningProps}
-        onTransformed={onTransformed}>
+        onTransform={onTransform}>
         <TransformComponent
           wrapperClass="h-full! w-full!"
           contentClass="w-full! h-full! flex items-center justify-center">

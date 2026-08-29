@@ -17,13 +17,37 @@ type TUsePrevNextButtonsReturn = {
 export const usePrevNextButtons = (opts: TUsePrevNextButtonsProps): TUsePrevNextButtonsReturn => {
   const { emblaApi, onButtonClick } = opts;
 
-  // --------------------------------------------------
-  const [disabledBtn, setDisabledBtn] = React.useState<{
-    prev: boolean;
-    next: boolean;
-  }>({ prev: true, next: true });
+  const subscribe = React.useCallback(
+    (onStoreChange: () => void) => {
+      if (!emblaApi) {
+        return () => {};
+      }
 
-  // --------------------------------------------------
+      emblaApi.on('select', onStoreChange).on('reInit', onStoreChange);
+
+      return () => {
+        emblaApi.off('select', onStoreChange).off('reInit', onStoreChange);
+      };
+    },
+    [emblaApi],
+  );
+
+  const canScrollPrev = React.useSyncExternalStore(
+    subscribe,
+    () => emblaApi?.canScrollPrev() ?? false,
+    () => false,
+  );
+
+  const canScrollNext = React.useSyncExternalStore(
+    subscribe,
+    () => emblaApi?.canScrollNext() ?? false,
+    () => false,
+  );
+
+  const disabledBtn = React.useMemo(() => {
+    return { prev: !canScrollPrev, next: !canScrollNext };
+  }, [canScrollPrev, canScrollNext]);
+
   const onClick = React.useCallback(
     (params: { variant: 'prev' | 'next' }) => {
       if (!emblaApi) {
@@ -38,32 +62,10 @@ export const usePrevNextButtons = (opts: TUsePrevNextButtonsProps): TUsePrevNext
         emblaApi.scrollNext();
       }
 
-      if (onButtonClick) {
-        onButtonClick(emblaApi);
-      }
+      onButtonClick?.(emblaApi);
     },
     [emblaApi, onButtonClick],
   );
-
-  // --------------------------------------------------
-  const onSelect = React.useCallback((_emblaApi: EmblaCarouselType) => {
-    setDisabledBtn({
-      prev: !_emblaApi.canScrollPrev(),
-      next: !_emblaApi.canScrollNext(),
-    });
-  }, []);
-
-  // --------------------------------------------------
-  React.useEffect(() => {
-    if (!emblaApi) {
-      return;
-    }
-
-    onSelect(emblaApi);
-    emblaApi.on('reInit', onSelect).on('select', onSelect);
-
-    return () => {};
-  }, [emblaApi, onSelect]);
 
   return {
     disabledBtn,

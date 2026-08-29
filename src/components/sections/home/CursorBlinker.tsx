@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants } from 'motion/react';
 
 const cursorVariants: Variants = {
   blinking: {
@@ -22,7 +22,7 @@ export const CursorBlinker: React.FC = () => {
     <motion.div
       variants={cursorVariants}
       animate="blinking"
-      className="bg-primary inline-block h-20 w-2 translate-y-1"
+      className="bg-primary inline-block h-5 w-0.5 translate-y-px"
     />
   );
 };

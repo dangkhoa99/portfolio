@@ -17,41 +17,37 @@ type TUseCarouselThumbReturn = {
 export const useCarouselThumb = (opts: TUseCarouselThumbProps): TUseCarouselThumbReturn => {
   const { emblaApi, emblaThumbsApi } = opts;
 
-  // --------------------------------------------------
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-
-  // --------------------------------------------------
-  const onClick = React.useCallback(
-    (index: number) => {
-      if (!emblaApi || !emblaThumbsApi) {
-        return;
+  const subscribe = React.useCallback(
+    (onStoreChange: () => void) => {
+      if (!emblaApi) {
+        return () => {};
       }
-      emblaApi.scrollTo(index);
+
+      emblaApi.on('select', onStoreChange).on('reInit', onStoreChange);
+
+      return () => {
+        emblaApi.off('select', onStoreChange).off('reInit', onStoreChange);
+      };
     },
-    [emblaApi, emblaThumbsApi],
+    [emblaApi],
   );
 
-  // --------------------------------------------------
-  const onSelect = React.useCallback(() => {
-    if (!emblaApi || !emblaThumbsApi) {
-      return;
-    }
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaThumbsApi.scrollTo(emblaApi.selectedScrollSnap());
-  }, [emblaApi, emblaThumbsApi]);
+  const selectedIndex = React.useSyncExternalStore(
+    subscribe,
+    () => emblaApi?.selectedScrollSnap() ?? 0,
+    () => 0,
+  );
 
-  // --------------------------------------------------
+  const onClick = React.useCallback(
+    (index: number) => {
+      emblaApi?.scrollTo(index);
+    },
+    [emblaApi],
+  );
+
   React.useEffect(() => {
-    if (!emblaApi) {
-      return;
-    }
-
-    onSelect();
-
-    emblaApi.on('select', onSelect).on('reInit', onSelect);
-
-    return () => {};
-  }, [emblaApi, onSelect]);
+    emblaThumbsApi?.scrollTo(selectedIndex);
+  }, [emblaThumbsApi, selectedIndex]);
 
   return {
     selectedIndex,

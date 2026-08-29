@@ -9,7 +9,6 @@ import { Layout } from '@/components/layout/Layout';
 import { Providers } from './providers';
 
 import '@/styles/globals.css';
-
 const roboto = Roboto({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
@@ -99,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" className={roboto.variable} suppressHydrationWarning>
+    <html lang="en" dir="ltr" className={`${roboto.variable} theme-sage`} suppressHydrationWarning>
       <body className={`relative flex min-h-screen flex-col antialiased`}>
         <Providers>
           <Layout>{children}</Layout>

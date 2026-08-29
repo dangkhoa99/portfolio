@@ -3,22 +3,19 @@
 import React from 'react';
 
 import { textAnimation } from '@/common';
-import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
+import { animate, motion, useMotionValue, useTransform } from 'motion/react';
 
 const TEXT_ANIMATION_DURATION = 60;
 
 export const TextAnimation: React.FC = () => {
-  // --------------------------------------------------
   const textIndex = useMotionValue(0);
   const count = useMotionValue(0);
   const updatedThisRound = useMotionValue(true);
 
-  // --------------------------------------------------
   const baseText = useTransform(textIndex, (latest) => textAnimation[latest] || '');
   const rounded = useTransform(count, (latest) => Math.round(latest));
   const displayText = useTransform(rounded, (latest) => baseText.get().slice(0, latest));
 
-  // --------------------------------------------------
   React.useEffect(() => {
     const controls = animate(count, TEXT_ANIMATION_DURATION, {
       type: 'tween',

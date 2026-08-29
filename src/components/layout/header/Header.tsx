@@ -9,7 +9,7 @@ import { HeaderWrapper } from './HeaderWrapper';
 export const Header: React.FC = () => {
   return (
     <HeaderWrapper>
-      <nav className="border-divider bg-background md:bg-background/30 container flex h-64 items-center justify-between gap-12 border-b md:mt-16 md:rounded-full md:border md:backdrop-blur-md">
+      <nav className="border-border bg-background md:bg-background/30 container flex h-16 items-center justify-between gap-3 border-b md:mt-4 md:rounded-full md:border md:backdrop-blur-md">
         <Link href="/" aria-label="Go to homepage">
           <Logo
             width={40}
@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
           <MenuList />
         </div>
 
-        <div className="flex gap-12">
+        <div className="flex gap-3">
           <ThemeToggleBtn />
 
           <div className="md:hidden">

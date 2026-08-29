@@ -1,25 +1,20 @@
 import { IProject } from '@/common';
-import { Accordion } from '@/components/core/accordion';
+import { AccordionContent, AccordionItem } from '@/components/ui/accordion';
 import { ProjectCollapse } from './ProjectCollapse';
 import { ProjectHeading } from './heading';
 
 interface IProps extends IProject {}
 
 export const Project: React.FC<IProps> = (props) => {
-  const { isExpanded } = props;
+  const { id } = props;
 
   return (
-    <Accordion
-      isExpanded={isExpanded}
-      slots={{
-        heading: <ProjectHeading {...props} />,
-        collapse: <ProjectCollapse {...props} />,
-      }}
-      slotProps={{
-        wrapper: {
-          className: 'border-divider flex flex-col border-b',
-        },
-      }}
-    />
+    <AccordionItem value={id} className="border-b not-last:border-b">
+      <ProjectHeading {...props} />
+
+      <AccordionContent className="pb-0">
+        <ProjectCollapse {...props} />
+      </AccordionContent>
+    </AccordionItem>
   );
 };

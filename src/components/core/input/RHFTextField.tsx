@@ -4,35 +4,47 @@ import React from 'react';
 
 import { FieldValues, useController, UseControllerProps } from 'react-hook-form';
 
-import { ITextFieldProps, TextField } from './TextField';
+import { Field, FieldError, FieldLabel } from '@/components/ui/field';
+import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 
 export type TRHFTextFieldProps<TFormValue extends FieldValues> = Required<
   Pick<UseControllerProps<TFormValue>, 'control' | 'name'>
 > &
-  Omit<ITextFieldProps, 'name'>;
+  Omit<React.ComponentProps<typeof Input>, 'name' | 'defaultValue'> & {
+    label?: React.ReactNode;
+  };
 
 export const RHFTextField = <TFormValue extends FieldValues>(
   props: TRHFTextFieldProps<TFormValue>,
 ) => {
-  const { control, name, ...restInputProps } = props;
+  const { control, name, label, className, required, ...restInputProps } = props;
 
-  // --------------------------------------------------
   const id = React.useId();
 
-  // --------------------------------------------------
   const { field, fieldState } = useController({ control, name });
 
   return (
-    <TextField
-      id={`${field.name}-${id}`}
-      inputRef={field.ref}
-      name={field.name}
-      value={field.value}
-      onChange={field.onChange}
-      onBlur={field.onBlur}
-      isError={!!fieldState.invalid}
-      helperText={fieldState.error?.message}
-      {...restInputProps}
-    />
+    <Field className="gap-1" data-invalid={fieldState.invalid || undefined}>
+      {!!label && (
+        <FieldLabel htmlFor={id}>
+          <span>
+            {label}
+            {!!required && <span className="text-destructive">{' *'}</span>}
+          </span>
+        </FieldLabel>
+      )}
+
+      <Input
+        id={id}
+        required={required}
+        aria-invalid={fieldState.invalid}
+        className={cn('hover:border-foreground h-9 px-3 text-sm', className)}
+        {...field}
+        {...restInputProps}
+      />
+
+      <FieldError errors={[fieldState.error]} />
+    </Field>
   );
 };

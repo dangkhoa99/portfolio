@@ -1,9 +1,9 @@
 import DOMPurify from 'isomorphic-dompurify';
-import Link from 'next/link';
 
 import { homeData, Menu, Socials } from '@/common';
+import { LinkButton } from '@/components/core/button';
 import { SectionTitle } from '@/components/core/common';
-import { TbFileCv } from 'react-icons/tb';
+import { FileUser } from 'lucide-react';
 import { CursorBlinker } from './CursorBlinker';
 import { TextAnimation } from './TextAnimation';
 
@@ -11,7 +11,7 @@ export const Home: React.FC = () => {
   const cvUrl = process.env.NEXT_PUBLIC_CV_URL;
 
   return (
-    <section id={Menu.HOME} className="flex flex-col gap-12">
+    <section id={Menu.HOME} className="flex flex-col gap-3">
       <SectionTitle
         subtitle="👋 Hello!"
         title={
@@ -23,7 +23,7 @@ export const Home: React.FC = () => {
         }
       />
 
-      <div className="text-text-secondary flex flex-col gap-12 text-justify text-base">
+      <div className="text-muted-foreground flex flex-col gap-3 text-justify text-base">
         {homeData.descriptions.map((desc, index) => {
           return (
             <span key={index} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(desc) }} />
@@ -31,38 +31,38 @@ export const Home: React.FC = () => {
         })}
       </div>
 
-      <div className="flex flex-wrap gap-8">
+      <div className="flex flex-wrap gap-2">
         {Socials.options.map((social) => {
           const IconComponent = social.icon;
 
           return (
-            <Link
-              role="button"
+            <LinkButton
               key={social.id}
+              variant="soft"
+              size="action"
               title={social.title}
+              aria-label={social.title}
               href={social.url}
               target="_blank"
-              rel="noopener noreferrer"
-              className="button hover:text-primary"
-              aria-label={social.title}>
+              rel="noopener noreferrer">
               <IconComponent aria-hidden size={16} />
               {social.title}
-            </Link>
+            </LinkButton>
           );
         })}
 
         {!!cvUrl && (
-          <Link
-            role="button"
+          <LinkButton
+            variant="soft"
+            size="action"
             title="View my CV"
+            aria-label="View my CV"
             href={cvUrl}
             target="_blank"
-            rel="noopener noreferrer"
-            className="button hover:text-primary"
-            aria-label="View my CV">
-            <TbFileCv aria-hidden size={16} />
+            rel="noopener noreferrer">
+            <FileUser aria-hidden size={16} />
             My CV
-          </Link>
+          </LinkButton>
         )}
       </div>
     </section>

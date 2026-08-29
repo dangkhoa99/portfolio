@@ -4,7 +4,7 @@ import { ContactForm } from './ContactForm';
 
 export const Contact: React.FC = () => {
   return (
-    <section id={Menu.CONTACT} className="flex flex-col gap-12">
+    <section id={Menu.CONTACT} className="flex flex-col gap-3">
       <SectionTitle
         subtitle="😎 Interested?"
         title={
@@ -15,7 +15,7 @@ export const Contact: React.FC = () => {
         }
       />
 
-      <p className="text-text-secondary text-base">
+      <p className="text-muted-foreground text-base">
         Do you have a project that you would like to collaborate on? Please feel free to contact me.
       </p>
 

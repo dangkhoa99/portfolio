@@ -2,80 +2,58 @@
 
 import React from 'react';
 
-import ReactDOM from 'react-dom';
-import { MdClose } from 'react-icons/md';
+import { X } from 'lucide-react';
 
 import { ICarouselSlide } from '@/common';
+import {
+  Dialog,
+  DialogClose,
+  DialogOverlay,
+  DialogPopup,
+  DialogPortal,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import { CarouselContainer } from './CarouselContainer';
 
 interface IProps {
+  title: string;
   isOpen: boolean;
   onClose?: () => void;
   images: ICarouselSlide[];
 }
 
 export const CarouselModal: React.FC<IProps> = (props) => {
-  const { isOpen, onClose, images } = props;
+  const { title, isOpen, onClose, images } = props;
 
-  // --------------------------------------------------
-  const modalRef = React.useRef<HTMLDivElement>(null);
-
-  // --------------------------------------------------
-  const onKeyDown = React.useCallback(
-    (event: React.KeyboardEvent) => {
-      if (event.key !== 'Escape') {
+  const onOpenChange = React.useCallback(
+    (open: boolean) => {
+      if (open) {
         return;
       }
 
-      event.stopPropagation();
       onClose?.();
     },
     [onClose],
   );
 
-  // --------------------------------------------------
-  React.useEffect(() => {
-    if (isOpen) {
-      modalRef.current?.focus();
-      document.body.classList.add('overflow-hidden');
-      return;
-    }
+  return (
+    <Dialog open={isOpen} onOpenChange={onOpenChange}>
+      <DialogPortal>
+        <DialogOverlay className="z-1300 bg-black supports-backdrop-filter:backdrop-blur-sm md:bg-black/60" />
 
-    document.body.classList.remove('overflow-hidden');
+        <DialogPopup className="data-closed:animate-out data-closed:fade-out-0 data-open:animate-in data-open:fade-in-0 fixed inset-0 z-1300 duration-100">
+          <DialogTitle className="sr-only">{`${title} screenshots`}</DialogTitle>
 
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [isOpen]);
+          <DialogClose
+            title="Close"
+            className="absolute top-2 right-2 z-2 flex size-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white transition-colors outline-none hover:bg-white/20 md:bg-transparent">
+            <X className="size-6" />
+            <span className="sr-only">Close</span>
+          </DialogClose>
 
-  // --------------------------------------------------
-  if (!isOpen) {
-    return null;
-  }
-
-  return ReactDOM.createPortal(
-    <div
-      ref={modalRef}
-      role="presentation"
-      className="fixed inset-0 z-[1300]"
-      onClick={(e) => e.stopPropagation()}
-      onKeyDown={onKeyDown}
-      tabIndex={-1}>
-      <button
-        title="Close"
-        className="absolute top-8 right-8 z-[2] rounded-full bg-white/10 p-8 transition-colors outline-none hover:bg-white/10 md:bg-transparent"
-        onClick={onClose}>
-        <MdClose className="text-2xl text-white" />
-      </button>
-
-      <div
-        aria-hidden
-        className="overlay absolute inset-0 bg-black backdrop-blur-sm md:bg-black/60"
-        onClick={onClose}
-      />
-
-      <CarouselContainer images={images} />
-    </div>,
-    document.body,
+          <CarouselContainer images={images} />
+        </DialogPopup>
+      </DialogPortal>
+    </Dialog>
   );
 };

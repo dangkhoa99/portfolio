@@ -1,11 +1,9 @@
 import { AppConst, AppRoutes } from '@/common';
 import { MetadataRoute } from 'next';
 
-// Required for static export
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Main pages
   const routes = [AppRoutes.HOME, AppRoutes.EXPERIENCE, AppRoutes.PROJECT, AppRoutes.CONTACT].map(
     (route) => {
       return {

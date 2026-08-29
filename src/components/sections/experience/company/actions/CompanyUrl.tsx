@@ -1,28 +1,27 @@
-import Link from 'next/link';
-import { BiLinkExternal } from 'react-icons/bi';
+import { ExternalLink } from 'lucide-react';
 
 import { TExperience } from '@/common';
+import { LinkButton } from '@/components/core/button';
 
 interface IProps extends TExperience {}
 
 export const CompanyUrl: React.FC<IProps> = (props) => {
   const { company } = props;
 
-  // --------------------------------------------------
   if (!company.url) {
     return null;
   }
 
   return (
-    <Link
+    <LinkButton
+      variant="subtle"
+      size="icon"
       title={`${company.name} Website`}
-      role="button"
-      className="icon__button"
+      aria-label={`${company.name} Website`}
       href={company.url}
       target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${company.name} Website`}>
-      <BiLinkExternal />
-    </Link>
+      rel="noopener noreferrer">
+      <ExternalLink />
+    </LinkButton>
   );
 };

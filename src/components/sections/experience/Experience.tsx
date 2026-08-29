@@ -4,7 +4,7 @@ import { Company } from './company';
 
 export const Experience: React.FC = () => {
   return (
-    <section id={Menu.EXPERIENCE} className="flex flex-col gap-24">
+    <section id={Menu.EXPERIENCE} className="flex flex-col gap-6">
       <SectionTitle subtitle="🚀 Where did I grow?" title={'Experience'} />
 
       {workExperienceData.map((exp) => {

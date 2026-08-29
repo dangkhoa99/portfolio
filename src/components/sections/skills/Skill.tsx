@@ -8,16 +8,15 @@ export const Skill: React.FC = () => {
   const wakaTimeId = process.env.NEXT_PUBLIC_WAKA_TIME_ID;
 
   return (
-    <section id={Menu.SKILL} className="border-divider mt-24 flex flex-col gap-8 border-t py-16">
+    <section id={Menu.SKILL} className="border-border mt-6 flex flex-col gap-2 border-t py-4">
       <SectionTitle
         subtitle="😁 What can I do?"
         title={
-          <div className="flex flex-col flex-wrap justify-between gap-4 md:flex-row md:items-center">
+          <div className="flex flex-col flex-wrap justify-between gap-1 md:flex-row md:items-center">
             Skills
             {!!wakaTimeId && (
               <Link
-                className="relative h-20 w-200"
-                role="button"
+                className="relative h-5 w-50"
                 href={`https://wakatime.com/@${wakaTimeId}`}
                 title="View my WakaTime profile"
                 target="_blank"
@@ -36,16 +35,16 @@ export const Skill: React.FC = () => {
         }
       />
 
-      <p className="text-text-secondary text-justify text-sm">
+      <p className="text-muted-foreground text-justify text-sm">
         {`These are the technologies and skills I’ve learned or used in my projects. I’m always curious and eager to explore new tools, so this list will keep evolving as I grow in my career.`}
       </p>
 
-      <div className="flex flex-col gap-24">
+      <div className="flex flex-col gap-6">
         {mySkills.map((category) => {
           return (
-            <div key={category.id} className="flex flex-col gap-4">
+            <div key={category.id} className="flex flex-col gap-1">
               <div>
-                <span className="text-text-secondary text-[10px] font-medium tracking-widest uppercase">{`< ${category.title} />`}</span>
+                <span className="text-muted-foreground text-[10px] font-medium tracking-widest uppercase">{`< ${category.title} />`}</span>
               </div>
 
               <SkillList data={category.skills} />
