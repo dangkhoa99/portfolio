@@ -90,7 +90,6 @@ export const projectData: IProject[] = [
     logoDark: `/projects/bana/logo-dark.svg`,
   },
   {
-    isExpanded: true,
     id: 'bana-sale',
     title: 'BANA - Sale',
     periodFrom: 'Dec 2025',

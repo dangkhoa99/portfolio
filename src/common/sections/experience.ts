@@ -84,7 +84,6 @@ export const workExperienceData: TExperience[] = [
         ],
       },
       {
-        isExpanded: true,
         id: 'fe_minimal_technology',
         title: 'Front End Developer',
         periodFrom: 'Nov 2022',
